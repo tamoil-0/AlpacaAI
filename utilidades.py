@@ -1,3 +1,6 @@
+def mcd(a, b):
+    """Devuelve el máximo común divisor de dos números enteros."""
+    return math.gcd(int(a), int(b))
 def factorial(n):
     """Devuelve el factorial de un número entero no negativo."""
     if n < 0 or not float(n).is_integer():
