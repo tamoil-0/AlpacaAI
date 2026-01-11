@@ -1,3 +1,8 @@
+def log_natural(x):
+    """Devuelve el logaritmo natural (base e) de un número positivo."""
+    if x <= 0:
+        return "Error: El logaritmo solo está definido para números positivos."
+    return math.log(x)
 def radianes_a_grados(radianes):
     """Convierte radianes a grados."""
     return math.degrees(radianes)
