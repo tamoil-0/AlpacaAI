@@ -1,3 +1,11 @@
+def signo(x):
+    """Devuelve el signo de un número: -1 si es negativo, 0 si es cero, 1 si es positivo."""
+    if x > 0:
+        return 1
+    elif x < 0:
+        return -1
+    else:
+        return 0
 def redondear(x, n=0):
     """Redondea un número x a n decimales."""
     return round(x, n)
