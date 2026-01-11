@@ -1,3 +1,6 @@
+def radianes_a_grados(radianes):
+    """Convierte radianes a grados."""
+    return math.degrees(radianes)
 def grados_a_radianes(grados):
     """Convierte grados a radianes."""
     return math.radians(grados)
