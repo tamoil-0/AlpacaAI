@@ -1,3 +1,4 @@
+import time
 """
 Calculadora básica en consola
 Autor: Jhon (mejoras automáticas)
@@ -37,6 +38,7 @@ def division(a, b):
 
         if opcion == '5':
             print(Fore.YELLOW + "¡Hasta luego!")
+            time.sleep(1)
             break
 
         try:
