@@ -14,37 +14,45 @@ def multiplicacion(a, b):
     return a * b
 
 def division(a, b):
-    """Divide el primer número por el segundo y devuelve el resultado."""
-    if b == 0:
-        return "Error: División por cero"
-    return a / b
-
-def main():
     init(autoreset=True)
-    limpiar_pantalla()
-    print(Fore.CYAN + "============================")
-    print(Fore.YELLOW + "   Calculadora Básica   ")
-    print(Fore.CYAN + "============================")
-    print(Fore.GREEN + "Opciones:")
-    print(Fore.MAGENTA + "  1. Suma")
-    print(Fore.MAGENTA + "  2. Resta")
-    print(Fore.MAGENTA + "  3. Multiplicación")
-    print(Fore.MAGENTA + "  4. División")
-    print(Fore.CYAN + "----------------------------")
-def limpiar_pantalla():
-    """Limpia la pantalla de la consola."""
-    os.system('cls' if os.name == 'nt' else 'clear')
+    while True:
+        limpiar_pantalla()
+        print(Fore.CYAN + "============================")
+        print(Fore.YELLOW + "   Calculadora Básica   ")
+        print(Fore.CYAN + "============================")
+        print(Fore.GREEN + "Opciones:")
+        print(Fore.MAGENTA + "  1. Suma")
+        print(Fore.MAGENTA + "  2. Resta")
+        print(Fore.MAGENTA + "  3. Multiplicación")
+        print(Fore.MAGENTA + "  4. División")
+        print(Fore.RED + "  5. Salir")
+        print(Fore.CYAN + "----------------------------")
 
-    opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5): ").strip()
 
-    try:
-        a = float(input(Fore.WHITE + "Ingresa el primer número: "))
-        b = float(input(Fore.WHITE + "Ingresa el segundo número: "))
-    except ValueError:
-        print(Fore.RED + "Error: Ingresa solo números válidos.")
-        return
+        if opcion == '5':
+            print(Fore.YELLOW + "¡Hasta luego!")
+            break
 
-    if opcion == '1':
+        try:
+            a = float(input(Fore.WHITE + "Ingresa el primer número: "))
+            b = float(input(Fore.WHITE + "Ingresa el segundo número: "))
+        except ValueError:
+            print(Fore.RED + "Error: Ingresa solo números válidos.")
+            input(Fore.WHITE + "Presiona Enter para continuar...")
+            continue
+
+        if opcion == '1':
+            print(Fore.BLUE + "Resultado:", suma(a, b))
+        elif opcion == '2':
+            print(Fore.BLUE + "Resultado:", resta(a, b))
+        elif opcion == '3':
+            print(Fore.BLUE + "Resultado:", multiplicacion(a, b))
+        elif opcion == '4':
+            print(Fore.BLUE + "Resultado:", division(a, b))
+        else:
+            print(Fore.RED + "Opción no válida")
+        input(Fore.WHITE + "Presiona Enter para continuar...")
         print(Fore.BLUE + "Resultado:", suma(a, b))
     elif opcion == '2':
         print(Fore.BLUE + "Resultado:", resta(a, b))
