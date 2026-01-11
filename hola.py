@@ -1,3 +1,8 @@
+"""
+Calculadora básica en consola
+Autor: Jhon (mejoras automáticas)
+Fecha: 2026-01-10
+"""
 import os
 from colorama import init, Fore, Style
 
