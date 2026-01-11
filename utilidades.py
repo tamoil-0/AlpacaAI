@@ -1,3 +1,6 @@
+def redondear(x, n=0):
+    """Redondea un número x a n decimales."""
+    return round(x, n)
 def exponente(x):
     """Devuelve e elevado a la x."""
     return math.exp(x)
