@@ -67,6 +67,7 @@ def division(a, b):
             input(Fore.WHITE + "Presiona Enter para continuar...")
             continue
 
+        print(Fore.CYAN + "----------------------------")
         if isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
