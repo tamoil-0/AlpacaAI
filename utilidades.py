@@ -1,3 +1,6 @@
+def valor_absoluto(x):
+    """Devuelve el valor absoluto de un número."""
+    return abs(x)
 """
 Archivo de utilidades matemáticas
 Autor: Jhon (mejoras automáticas)
