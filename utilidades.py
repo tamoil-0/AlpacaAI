@@ -1,3 +1,8 @@
+def log_base_10(x):
+    """Devuelve el logaritmo en base 10 de un número positivo."""
+    if x <= 0:
+        return "Error: El logaritmo solo está definido para números positivos."
+    return math.log10(x)
 def mcm(a, b):
     """Devuelve el mínimo común múltiplo de dos números enteros."""
     a, b = int(a), int(b)
