@@ -1,3 +1,9 @@
+def mcm(a, b):
+    """Devuelve el mínimo común múltiplo de dos números enteros."""
+    a, b = int(a), int(b)
+    if a == 0 or b == 0:
+        return 0
+    return abs(a * b) // math.gcd(a, b)
 def mcd(a, b):
     """Devuelve el máximo común divisor de dos números enteros."""
     return math.gcd(int(a), int(b))
