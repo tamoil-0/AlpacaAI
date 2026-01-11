@@ -1,3 +1,6 @@
+def coseno(x):
+    """Devuelve el coseno de un ángulo en radianes."""
+    return math.cos(x)
 def seno(x):
     """Devuelve el seno de un ángulo en radianes."""
     return math.sin(x)
