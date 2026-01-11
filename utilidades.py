@@ -1,3 +1,6 @@
+def tangente(x):
+    """Devuelve la tangente de un ángulo en radianes."""
+    return math.tan(x)
 def coseno(x):
     """Devuelve el coseno de un ángulo en radianes."""
     return math.cos(x)
