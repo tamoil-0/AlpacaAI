@@ -36,7 +36,14 @@ def division(a, b):
 
         try:
             a = float(input(Fore.WHITE + "Ingresa el primer número: "))
-            b = float(input(Fore.WHITE + "Ingresa el segundo número: "))
+            if opcion == '4':
+                b = float(input(Fore.WHITE + "Ingresa el segundo número (no puede ser 0): "))
+                if b == 0:
+                    print(Fore.RED + "Error: No se puede dividir por cero.")
+                    input(Fore.WHITE + "Presiona Enter para continuar...")
+                    continue
+            else:
+                b = float(input(Fore.WHITE + "Ingresa el segundo número: "))
         except ValueError:
             print(Fore.RED + "Error: Ingresa solo números válidos.")
             input(Fore.WHITE + "Presiona Enter para continuar...")
