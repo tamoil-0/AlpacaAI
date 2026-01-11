@@ -1,3 +1,6 @@
+def exponente(x):
+    """Devuelve e elevado a la x."""
+    return math.exp(x)
 def log_natural(x):
     """Devuelve el logaritmo natural (base e) de un número positivo."""
     if x <= 0:
