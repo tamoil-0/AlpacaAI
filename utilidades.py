@@ -1,3 +1,6 @@
+def seno(x):
+    """Devuelve el seno de un ángulo en radianes."""
+    return math.sin(x)
 def log_base_10(x):
     """Devuelve el logaritmo en base 10 de un número positivo."""
     if x <= 0:
