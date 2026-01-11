@@ -50,15 +50,22 @@ def division(a, b):
             continue
 
         if opcion == '1':
-            print(Fore.BLUE + "Resultado:", suma(a, b))
+            resultado = suma(a, b)
         elif opcion == '2':
-            print(Fore.BLUE + "Resultado:", resta(a, b))
+            resultado = resta(a, b)
         elif opcion == '3':
-            print(Fore.BLUE + "Resultado:", multiplicacion(a, b))
+            resultado = multiplicacion(a, b)
         elif opcion == '4':
-            print(Fore.BLUE + "Resultado:", division(a, b))
+            resultado = division(a, b)
         else:
             print(Fore.RED + "Opción no válida")
+            input(Fore.WHITE + "Presiona Enter para continuar...")
+            continue
+
+        if isinstance(resultado, float):
+            print(Fore.BLUE + f"Resultado: {resultado:.2f}")
+        else:
+            print(Fore.BLUE + f"Resultado: {resultado}")
         input(Fore.WHITE + "Presiona Enter para continuar...")
         print(Fore.BLUE + "Resultado:", suma(a, b))
     elif opcion == '2':
