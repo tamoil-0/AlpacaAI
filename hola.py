@@ -1,3 +1,4 @@
+import os
 from colorama import init, Fore, Style
 
 def suma(a, b):
@@ -20,6 +21,7 @@ def division(a, b):
 
 def main():
     init(autoreset=True)
+    limpiar_pantalla()
     print(Fore.CYAN + "============================")
     print(Fore.YELLOW + "   Calculadora Básica   ")
     print(Fore.CYAN + "============================")
@@ -29,6 +31,9 @@ def main():
     print(Fore.MAGENTA + "  3. Multiplicación")
     print(Fore.MAGENTA + "  4. División")
     print(Fore.CYAN + "----------------------------")
+def limpiar_pantalla():
+    """Limpia la pantalla de la consola."""
+    os.system('cls' if os.name == 'nt' else 'clear')
 
     opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4): ").strip()
 
