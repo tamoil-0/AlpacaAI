@@ -1,3 +1,8 @@
+def factorial(n):
+    """Devuelve el factorial de un número entero no negativo."""
+    if n < 0 or not float(n).is_integer():
+        return "Error: El factorial solo está definido para enteros no negativos."
+    return math.factorial(int(n))
 def valor_absoluto(x):
     """Devuelve el valor absoluto de un número."""
     return abs(x)
