@@ -27,10 +27,14 @@ def main():
     print("  4. División")
     print("----------------------------")
 
-    opcion = input("Elige una opción (1/2/3/4): ")
+    opcion = input("Elige una opción (1/2/3/4): ").strip()
 
-    a = float(input("Ingresa el primer número: "))
-    b = float(input("Ingresa el segundo número: "))
+    try:
+        a = float(input("Ingresa el primer número: "))
+        b = float(input("Ingresa el segundo número: "))
+    except ValueError:
+        print("Error: Ingresa solo números válidos.")
+        return
 
     if opcion == '1':
         print("Resultado:", suma(a, b))
