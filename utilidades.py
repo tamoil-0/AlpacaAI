@@ -1,3 +1,6 @@
+def grados_a_radianes(grados):
+    """Convierte grados a radianes."""
+    return math.radians(grados)
 def tangente(x):
     """Devuelve la tangente de un ángulo en radianes."""
     return math.tan(x)
