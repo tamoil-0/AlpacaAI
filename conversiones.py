@@ -1,3 +1,6 @@
+def fahrenheit_a_celsius(f):
+    """Convierte grados Fahrenheit a Celsius."""
+    return (f - 32) * 5/9
 def celsius_a_fahrenheit(c):
     """Convierte grados Celsius a Fahrenheit."""
     return c * 9/5 + 32
