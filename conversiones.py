@@ -1,3 +1,6 @@
+def metros_a_centimetros(m):
+    """Convierte metros a centímetros."""
+    return m * 100
 """
 Módulo de conversión de unidades
 Autor: Jhon (mejoras automáticas)
