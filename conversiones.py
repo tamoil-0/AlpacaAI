@@ -1,3 +1,6 @@
+def celsius_a_fahrenheit(c):
+    """Convierte grados Celsius a Fahrenheit."""
+    return c * 9/5 + 32
 def libras_a_kilogramos(lb):
     """Convierte libras a kilogramos."""
     return lb / 2.20462
