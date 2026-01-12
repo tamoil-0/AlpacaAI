@@ -1,3 +1,6 @@
+def kilogramos_a_libras(kg):
+    """Convierte kilogramos a libras."""
+    return kg * 2.20462
 def pulgadas_a_metros(inch):
     """Convierte pulgadas a metros."""
     return inch / 39.3701
