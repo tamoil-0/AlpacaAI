@@ -1,3 +1,6 @@
+def pulgadas_a_metros(inch):
+    """Convierte pulgadas a metros."""
+    return inch / 39.3701
 def metros_a_pulgadas(m):
     """Convierte metros a pulgadas."""
     return m * 39.3701
