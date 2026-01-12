@@ -1,3 +1,6 @@
+def centimetros_a_metros(cm):
+    """Convierte centímetros a metros."""
+    return cm / 100
 def metros_a_centimetros(m):
     """Convierte metros a centímetros."""
     return m * 100
