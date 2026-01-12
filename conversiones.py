@@ -1,3 +1,6 @@
+def libras_a_kilogramos(lb):
+    """Convierte libras a kilogramos."""
+    return lb / 2.20462
 def kilogramos_a_libras(kg):
     """Convierte kilogramos a libras."""
     return kg * 2.20462
