@@ -1,3 +1,6 @@
+def metros_a_pulgadas(m):
+    """Convierte metros a pulgadas."""
+    return m * 39.3701
 def centimetros_a_metros(cm):
     """Convierte centímetros a metros."""
     return cm / 100
