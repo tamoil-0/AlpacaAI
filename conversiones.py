@@ -1,3 +1,6 @@
+def litros_a_galones(l):
+    """Convierte litros a galones (EEUU)."""
+    return l * 0.264172
 def fahrenheit_a_celsius(f):
     """Convierte grados Fahrenheit a Celsius."""
     return (f - 32) * 5/9
