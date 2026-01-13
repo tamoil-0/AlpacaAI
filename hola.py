@@ -1,3 +1,8 @@
+def porcentaje(a, b):
+    """Devuelve qué porcentaje es a de b."""
+    if b == 0:
+        return "Error: División por cero"
+    return (a / b) * 100
 import time
 """
 Calculadora básica en consola
