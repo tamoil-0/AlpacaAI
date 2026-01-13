@@ -1,3 +1,6 @@
+def minutos_a_horas(mins):
+    """Convierte minutos a horas."""
+    return mins / 60
 def segundos_a_minutos(seg):
     """Convierte segundos a minutos."""
     return seg / 60
