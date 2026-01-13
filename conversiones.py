@@ -1,3 +1,6 @@
+def galones_a_litros(gal):
+    """Convierte galones (EEUU) a litros."""
+    return gal / 0.264172
 def litros_a_galones(l):
     """Convierte litros a galones (EEUU)."""
     return l * 0.264172
