@@ -1,3 +1,6 @@
+def limpiar_ultima_linea():
+    """Simula limpiar la última línea de la consola."""
+    print("\033[F\033[K", end="")
 def porcentaje(a, b):
     """Devuelve qué porcentaje es a de b."""
     if b == 0:
