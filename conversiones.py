@@ -1,3 +1,6 @@
+def horas_a_dias(h):
+    """Convierte horas a días."""
+    return h / 24
 def minutos_a_horas(mins):
     """Convierte minutos a horas."""
     return mins / 60
