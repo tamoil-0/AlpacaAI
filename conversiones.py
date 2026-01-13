@@ -1,3 +1,6 @@
+def dias_a_semanas(d):
+    """Convierte días a semanas."""
+    return d / 7
 def horas_a_dias(h):
     """Convierte horas a días."""
     return h / 24
