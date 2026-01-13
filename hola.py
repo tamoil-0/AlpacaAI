@@ -84,7 +84,9 @@ def main():
             continue
 
         print(Fore.CYAN + "----------------------------")
-        if isinstance(resultado, float):
+        if opcion == '5' and isinstance(resultado, float):
+            print(Fore.BLUE + f"Resultado: {resultado:.2f}%")
+        elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
             print(Fore.BLUE + f"Resultado: {resultado}")
