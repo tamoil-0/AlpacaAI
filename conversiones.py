@@ -1,3 +1,6 @@
+def segundos_a_minutos(seg):
+    """Convierte segundos a minutos."""
+    return seg / 60
 def galones_a_litros(gal):
     """Convierte galones (EEUU) a litros."""
     return gal / 0.264172
