@@ -20,6 +20,12 @@ def multiplicacion(a, b):
     return a * b
 
 def division(a, b):
+    """Divide el primer número por el segundo y devuelve el resultado."""
+    if b == 0:
+        return "Error: División por cero"
+    return a / b
+
+def main():
     init(autoreset=True)
     while True:
         limpiar_pantalla()
@@ -75,15 +81,7 @@ def division(a, b):
         else:
             print(Fore.BLUE + f"Resultado: {resultado}")
         input(Fore.WHITE + "Presiona Enter para continuar...")
-        print(Fore.BLUE + "Resultado:", suma(a, b))
-    elif opcion == '2':
-        print(Fore.BLUE + "Resultado:", resta(a, b))
-    elif opcion == '3':
-        print(Fore.BLUE + "Resultado:", multiplicacion(a, b))
-    elif opcion == '4':
-        print(Fore.BLUE + "Resultado:", division(a, b))
-    else:
-        print(Fore.RED + "Opción no válida")
+
 
 if __name__ == "__main__":
     main()
