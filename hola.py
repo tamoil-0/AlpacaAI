@@ -49,12 +49,13 @@ def main():
         print(Fore.MAGENTA + "  3. Multiplicación")
         print(Fore.MAGENTA + "  4. División")
         print(Fore.MAGENTA + "  5. Porcentaje")
-        print(Fore.RED + "  6. Salir")
+        print(Fore.MAGENTA + "  6. Promedio")
+        print(Fore.RED + "  7. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7): ").strip()
 
-        if opcion == '6':
+        if opcion == '7':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -84,6 +85,8 @@ def main():
             resultado = division(a, b)
         elif opcion == '5':
             resultado = porcentaje(a, b)
+        elif opcion == '6':
+            resultado = promedio(a, b)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
