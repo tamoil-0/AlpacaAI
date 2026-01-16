@@ -1,3 +1,6 @@
+def promedio(a, b):
+    """Devuelve el promedio de dos números."""
+    return (a + b) / 2
 def limpiar_ultima_linea():
     """Simula limpiar la última línea de la consola."""
     print("\033[F\033[K", end="")
