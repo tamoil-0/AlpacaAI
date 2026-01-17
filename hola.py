@@ -111,6 +111,8 @@ def main():
             print(Fore.BLUE + f"Promedio: {resultado:.2f}")
         elif opcion == '7':
             print(Fore.BLUE + f"Valor absoluto: {resultado}")
+        elif opcion == '8':
+            print(Fore.BLUE + f"Mínimo: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
