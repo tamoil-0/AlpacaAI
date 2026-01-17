@@ -119,6 +119,8 @@ def main():
             print(Fore.BLUE + f"Valor absoluto: {resultado}")
         elif opcion == '8':
             print(Fore.BLUE + f"Mínimo: {resultado}")
+        elif opcion == '9':
+            print(Fore.BLUE + f"Máximo: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
