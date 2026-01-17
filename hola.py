@@ -1,3 +1,6 @@
+def minimo(a, b):
+    """Devuelve el menor de dos números."""
+    return min(a, b)
 def valor_absoluto(a):
     """Devuelve el valor absoluto de un número."""
     return abs(a)
@@ -54,12 +57,13 @@ def main():
         print(Fore.MAGENTA + "  5. Porcentaje")
         print(Fore.MAGENTA + "  6. Promedio")
         print(Fore.MAGENTA + "  7. Valor absoluto")
-        print(Fore.RED + "  8. Salir")
+        print(Fore.MAGENTA + "  8. Mínimo")
+        print(Fore.RED + "  9. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9): ").strip()
 
-        if opcion == '8':
+        if opcion == '9':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -72,7 +76,7 @@ def main():
                     print(Fore.RED + "Error: No se puede dividir por cero.")
                     input(Fore.WHITE + "Presiona Enter para continuar...")
                     continue
-            elif opcion in ['1','2','3','5','6']:
+            elif opcion in ['1','2','3','5','6','8']:
                 b = float(input(Fore.WHITE + "Ingresa el segundo número: "))
         except ValueError:
             print(Fore.RED + "Error: Ingresa solo números válidos.")
@@ -93,6 +97,8 @@ def main():
             resultado = promedio(a, b)
         elif opcion == '7':
             resultado = valor_absoluto(a)
+        elif opcion == '8':
+            resultado = minimo(a, b)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
