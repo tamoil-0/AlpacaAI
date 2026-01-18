@@ -1,3 +1,8 @@
+def log_natural(a):
+    """Devuelve el logaritmo natural (base e) de un número positivo."""
+    if a <= 0:
+        return "Error: El logaritmo solo está definido para números positivos."
+    return math.log(a)
 def factorial(a):
     """Devuelve el factorial de un número entero no negativo."""
     if a < 0 or not float(a).is_integer():
@@ -91,12 +96,13 @@ def main():
         print(Fore.MAGENTA + "  12. Inverso")
         print(Fore.MAGENTA + "  13. Módulo")
         print(Fore.MAGENTA + "  14. Factorial")
-        print(Fore.RED + "  15. Salir")
+        print(Fore.MAGENTA + "  15. Logaritmo natural")
+        print(Fore.RED + "  16. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16): ").strip()
 
-        if opcion == '15':
+        if opcion == '16':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -144,6 +150,8 @@ def main():
             resultado = modulo(a, b)
         elif opcion == '14':
             resultado = factorial(a)
+        elif opcion == '15':
+            resultado = log_natural(a)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
