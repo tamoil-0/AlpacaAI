@@ -1,3 +1,6 @@
+def exponente(a):
+    """Devuelve e elevado a la a."""
+    return math.exp(a)
 def log_base_10(a):
     """Devuelve el logaritmo en base 10 de un número positivo."""
     if a <= 0:
@@ -103,12 +106,13 @@ def main():
         print(Fore.MAGENTA + "  14. Factorial")
         print(Fore.MAGENTA + "  15. Logaritmo natural")
         print(Fore.MAGENTA + "  16. Logaritmo base 10")
-        print(Fore.RED + "  17. Salir")
+        print(Fore.MAGENTA + "  17. Exponente (e^x)")
+        print(Fore.RED + "  18. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18): ").strip()
 
-        if opcion == '17':
+        if opcion == '18':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -160,6 +164,8 @@ def main():
             resultado = log_natural(a)
         elif opcion == '16':
             resultado = log_base_10(a)
+        elif opcion == '17':
+            resultado = exponente(a)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
