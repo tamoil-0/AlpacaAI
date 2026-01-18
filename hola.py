@@ -1,3 +1,8 @@
+def modulo(a, b):
+    """Devuelve el módulo (resto) de la división de a entre b."""
+    if b == 0:
+        return "Error: No se puede dividir por cero."
+    return a % b
 def inverso(a):
     """Devuelve el inverso de un número (1/x)."""
     if a == 0:
@@ -79,12 +84,13 @@ def main():
         print(Fore.MAGENTA + "  10. Potencia")
         print(Fore.MAGENTA + "  11. Raíz cuadrada")
         print(Fore.MAGENTA + "  12. Inverso")
-        print(Fore.RED + "  13. Salir")
+        print(Fore.MAGENTA + "  13. Módulo")
+        print(Fore.RED + "  14. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14): ").strip()
 
-        if opcion == '13':
+        if opcion == '14':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -97,7 +103,7 @@ def main():
                     print(Fore.RED + "Error: No se puede dividir por cero.")
                     input(Fore.WHITE + "Presiona Enter para continuar...")
                     continue
-            elif opcion in ['1','2','3','5','6','8','9','10']:
+            elif opcion in ['1','2','3','5','6','8','9','10','13']:
                 b = float(input(Fore.WHITE + "Ingresa el segundo número: "))
         except ValueError:
             print(Fore.RED + "Error: Ingresa solo números válidos.")
@@ -128,6 +134,8 @@ def main():
             resultado = raiz_cuadrada(a)
         elif opcion == '12':
             resultado = inverso(a)
+        elif opcion == '13':
+            resultado = modulo(a, b)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
