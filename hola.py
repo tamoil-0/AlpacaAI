@@ -184,6 +184,8 @@ def main():
             print(Fore.BLUE + f"Factorial: {resultado}")
         elif opcion == '15':
             print(Fore.BLUE + f"Logaritmo natural: {resultado}")
+        elif opcion == '16':
+            print(Fore.BLUE + f"Logaritmo base 10: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
