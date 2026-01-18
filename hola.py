@@ -1,3 +1,8 @@
+def factorial(a):
+    """Devuelve el factorial de un número entero no negativo."""
+    if a < 0 or not float(a).is_integer():
+        return "Error: El factorial solo está definido para enteros no negativos."
+    return math.factorial(int(a))
 def modulo(a, b):
     """Devuelve el módulo (resto) de la división de a entre b."""
     if b == 0:
@@ -85,12 +90,13 @@ def main():
         print(Fore.MAGENTA + "  11. Raíz cuadrada")
         print(Fore.MAGENTA + "  12. Inverso")
         print(Fore.MAGENTA + "  13. Módulo")
-        print(Fore.RED + "  14. Salir")
+        print(Fore.MAGENTA + "  14. Factorial")
+        print(Fore.RED + "  15. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15): ").strip()
 
-        if opcion == '14':
+        if opcion == '15':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -136,6 +142,8 @@ def main():
             resultado = inverso(a)
         elif opcion == '13':
             resultado = modulo(a, b)
+        elif opcion == '14':
+            resultado = factorial(a)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
