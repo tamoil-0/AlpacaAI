@@ -1,3 +1,8 @@
+def log_base_10(a):
+    """Devuelve el logaritmo en base 10 de un número positivo."""
+    if a <= 0:
+        return "Error: El logaritmo solo está definido para números positivos."
+    return math.log10(a)
 def log_natural(a):
     """Devuelve el logaritmo natural (base e) de un número positivo."""
     if a <= 0:
@@ -97,12 +102,13 @@ def main():
         print(Fore.MAGENTA + "  13. Módulo")
         print(Fore.MAGENTA + "  14. Factorial")
         print(Fore.MAGENTA + "  15. Logaritmo natural")
-        print(Fore.RED + "  16. Salir")
+        print(Fore.MAGENTA + "  16. Logaritmo base 10")
+        print(Fore.RED + "  17. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17): ").strip()
 
-        if opcion == '16':
+        if opcion == '17':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -152,6 +158,8 @@ def main():
             resultado = factorial(a)
         elif opcion == '15':
             resultado = log_natural(a)
+        elif opcion == '16':
+            resultado = log_base_10(a)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
@@ -174,6 +182,8 @@ def main():
             print(Fore.BLUE + f"Inverso: {resultado}")
         elif opcion == '14':
             print(Fore.BLUE + f"Factorial: {resultado}")
+        elif opcion == '15':
+            print(Fore.BLUE + f"Logaritmo natural: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
