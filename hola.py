@@ -164,6 +164,8 @@ def main():
             print(Fore.BLUE + f"Raíz cuadrada: {resultado}")
         elif opcion == '12':
             print(Fore.BLUE + f"Inverso: {resultado}")
+        elif opcion == '14':
+            print(Fore.BLUE + f"Factorial: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
