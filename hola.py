@@ -1,3 +1,9 @@
+import math
+def raiz_cuadrada(a):
+    """Devuelve la raíz cuadrada de un número."""
+    if a < 0:
+        return "Error: No se puede calcular la raíz cuadrada de un número negativo."
+    return math.sqrt(a)
 def potencia(a, b):
     """Devuelve a elevado a la potencia b."""
     return a ** b
@@ -66,12 +72,13 @@ def main():
         print(Fore.MAGENTA + "  8. Mínimo")
         print(Fore.MAGENTA + "  9. Máximo")
         print(Fore.MAGENTA + "  10. Potencia")
-        print(Fore.RED + "  11. Salir")
+        print(Fore.MAGENTA + "  11. Raíz cuadrada")
+        print(Fore.RED + "  12. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12): ").strip()
 
-        if opcion == '11':
+        if opcion == '12':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -111,6 +118,8 @@ def main():
             resultado = maximo(a, b)
         elif opcion == '10':
             resultado = potencia(a, b)
+        elif opcion == '11':
+            resultado = raiz_cuadrada(a)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
