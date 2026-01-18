@@ -136,6 +136,8 @@ def main():
             print(Fore.BLUE + f"Mínimo: {resultado}")
         elif opcion == '9':
             print(Fore.BLUE + f"Máximo: {resultado}")
+        elif opcion == '11':
+            print(Fore.BLUE + f"Raíz cuadrada: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
