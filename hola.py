@@ -1,3 +1,8 @@
+def inverso(a):
+    """Devuelve el inverso de un número (1/x)."""
+    if a == 0:
+        return "Error: No se puede dividir por cero."
+    return 1 / a
 import math
 def raiz_cuadrada(a):
     """Devuelve la raíz cuadrada de un número."""
@@ -73,12 +78,13 @@ def main():
         print(Fore.MAGENTA + "  9. Máximo")
         print(Fore.MAGENTA + "  10. Potencia")
         print(Fore.MAGENTA + "  11. Raíz cuadrada")
-        print(Fore.RED + "  12. Salir")
+        print(Fore.MAGENTA + "  12. Inverso")
+        print(Fore.RED + "  13. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13): ").strip()
 
-        if opcion == '12':
+        if opcion == '13':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -120,6 +126,8 @@ def main():
             resultado = potencia(a, b)
         elif opcion == '11':
             resultado = raiz_cuadrada(a)
+        elif opcion == '12':
+            resultado = inverso(a)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
