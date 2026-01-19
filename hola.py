@@ -1,3 +1,6 @@
+def tangente(a):
+    """Devuelve la tangente de un ángulo en radianes."""
+    return math.tan(a)
 def coseno(a):
     """Devuelve el coseno de un ángulo en radianes."""
     return math.cos(a)
@@ -115,12 +118,13 @@ def main():
         print(Fore.MAGENTA + "  17. Exponente (e^x)")
         print(Fore.MAGENTA + "  18. Seno (radianes)")
         print(Fore.MAGENTA + "  19. Coseno (radianes)")
-        print(Fore.RED + "  20. Salir")
+        print(Fore.MAGENTA + "  20. Tangente (radianes)")
+        print(Fore.RED + "  21. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21): ").strip()
 
-        if opcion == '20':
+        if opcion == '21':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -178,6 +182,8 @@ def main():
             resultado = seno(a)
         elif opcion == '19':
             resultado = coseno(a)
+        elif opcion == '20':
+            resultado = tangente(a)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
@@ -206,6 +212,8 @@ def main():
             print(Fore.BLUE + f"Logaritmo base 10: {resultado}")
         elif opcion == '18':
             print(Fore.BLUE + f"Seno: {resultado}")
+        elif opcion == '19':
+            print(Fore.BLUE + f"Coseno: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
