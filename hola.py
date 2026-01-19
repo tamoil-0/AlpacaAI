@@ -1,3 +1,6 @@
+def grados_a_radianes(a):
+    """Convierte grados a radianes."""
+    return math.radians(a)
 def tangente(a):
     """Devuelve la tangente de un ángulo en radianes."""
     return math.tan(a)
@@ -119,12 +122,13 @@ def main():
         print(Fore.MAGENTA + "  18. Seno (radianes)")
         print(Fore.MAGENTA + "  19. Coseno (radianes)")
         print(Fore.MAGENTA + "  20. Tangente (radianes)")
-        print(Fore.RED + "  21. Salir")
+        print(Fore.MAGENTA + "  21. Grados a radianes")
+        print(Fore.RED + "  22. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22): ").strip()
 
-        if opcion == '21':
+        if opcion == '22':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -184,6 +188,8 @@ def main():
             resultado = coseno(a)
         elif opcion == '20':
             resultado = tangente(a)
+        elif opcion == '21':
+            resultado = grados_a_radianes(a)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
