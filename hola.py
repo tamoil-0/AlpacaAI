@@ -5,6 +5,10 @@ def grados_a_radianes(a):
 def radianes_a_grados(a):
     """Convierte radianes a grados."""
     return math.degrees(a)
+
+def redondear(a, decimales=0):
+    """Redondea un número a un número específico de decimales."""
+    return round(a, decimales)
 def tangente(a):
     """Devuelve la tangente de un ángulo en radianes."""
     return math.tan(a)
@@ -128,12 +132,13 @@ def main():
         print(Fore.MAGENTA + "  20. Tangente (radianes)")
         print(Fore.MAGENTA + "  21. Grados a radianes")
         print(Fore.MAGENTA + "  22. Radianes a grados")
-        print(Fore.RED + "  23. Salir")
+        print(Fore.MAGENTA + "  23. Redondear")
+        print(Fore.RED + "  24. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24): ").strip()
 
-        if opcion == '23':
+        if opcion == '24':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -146,7 +151,7 @@ def main():
                     print(Fore.RED + "Error: No se puede dividir por cero.")
                     input(Fore.WHITE + "Presiona Enter para continuar...")
                     continue
-            elif opcion in ['1','2','3','5','6','8','9','10','13']:
+            elif opcion in ['1','2','3','5','6','8','9','10','13','23']:
                 b = float(input(Fore.WHITE + "Ingresa el segundo número: "))
         except ValueError:
             print(Fore.RED + "Error: Ingresa solo números válidos.")
@@ -197,6 +202,8 @@ def main():
             resultado = grados_a_radianes(a)
         elif opcion == '22':
             resultado = radianes_a_grados(a)
+        elif opcion == '23':
+            resultado = redondear(a, int(b))
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
