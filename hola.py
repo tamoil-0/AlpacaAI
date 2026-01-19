@@ -222,6 +222,8 @@ def main():
             print(Fore.BLUE + f"Coseno: {resultado}")
         elif opcion == '20':
             print(Fore.BLUE + f"Tangente: {resultado}")
+        elif opcion == '21':
+            print(Fore.BLUE + f"Radianes: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
