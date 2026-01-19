@@ -1,3 +1,6 @@
+def seno(a):
+    """Devuelve el seno de un ángulo en radianes."""
+    return math.sin(a)
 def exponente(a):
     """Devuelve e elevado a la a."""
     return math.exp(a)
@@ -107,12 +110,13 @@ def main():
         print(Fore.MAGENTA + "  15. Logaritmo natural")
         print(Fore.MAGENTA + "  16. Logaritmo base 10")
         print(Fore.MAGENTA + "  17. Exponente (e^x)")
-        print(Fore.RED + "  18. Salir")
+        print(Fore.MAGENTA + "  18. Seno (radianes)")
+        print(Fore.RED + "  19. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19): ").strip()
 
-        if opcion == '18':
+        if opcion == '19':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -166,6 +170,8 @@ def main():
             resultado = log_base_10(a)
         elif opcion == '17':
             resultado = exponente(a)
+        elif opcion == '18':
+            resultado = seno(a)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
