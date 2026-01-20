@@ -9,6 +9,15 @@ def radianes_a_grados(a):
 def redondear(a, decimales=0):
     """Redondea un número a un número específico de decimales."""
     return round(a, decimales)
+
+def signo(a):
+    """Devuelve el signo de un número: -1 si negativo, 0 si cero, 1 si positivo."""
+    if a > 0:
+        return 1
+    elif a < 0:
+        return -1
+    else:
+        return 0
 def tangente(a):
     """Devuelve la tangente de un ángulo en radianes."""
     return math.tan(a)
@@ -133,12 +142,13 @@ def main():
         print(Fore.MAGENTA + "  21. Grados a radianes")
         print(Fore.MAGENTA + "  22. Radianes a grados")
         print(Fore.MAGENTA + "  23. Redondear")
-        print(Fore.RED + "  24. Salir")
+        print(Fore.MAGENTA + "  24. Signo")
+        print(Fore.RED + "  25. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25): ").strip()
 
-        if opcion == '24':
+        if opcion == '25':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -204,6 +214,8 @@ def main():
             resultado = radianes_a_grados(a)
         elif opcion == '23':
             resultado = redondear(a, int(b))
+        elif opcion == '24':
+            resultado = signo(a)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
@@ -240,6 +252,8 @@ def main():
             print(Fore.BLUE + f"Radianes: {resultado}")
         elif opcion == '22':
             print(Fore.BLUE + f"Grados: {resultado}")
+        elif opcion == '24':
+            print(Fore.BLUE + f"Signo: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
