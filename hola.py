@@ -34,6 +34,10 @@ def mcm(a, b):
 def piso(a):
     """Devuelve el piso de un número (el entero más grande menor o igual a a)."""
     return math.floor(a)
+
+def techo(a):
+    """Devuelve el techo de un número (el entero más pequeño mayor o igual a a)."""
+    return math.ceil(a)
 def tangente(a):
     """Devuelve la tangente de un ángulo en radianes."""
     return math.tan(a)
@@ -162,12 +166,13 @@ def main():
         print(Fore.MAGENTA + "  25. MCD")
         print(Fore.MAGENTA + "  26. MCM")
         print(Fore.MAGENTA + "  27. Piso")
-        print(Fore.RED + "  28. Salir")
+        print(Fore.MAGENTA + "  28. Techo")
+        print(Fore.RED + "  29. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29): ").strip()
 
-        if opcion == '28':
+        if opcion == '29':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -241,6 +246,8 @@ def main():
             resultado = mcm(a, b)
         elif opcion == '27':
             resultado = piso(a)
+        elif opcion == '28':
+            resultado = techo(a)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
@@ -285,6 +292,8 @@ def main():
             print(Fore.BLUE + f"MCM: {resultado}")
         elif opcion == '27':
             print(Fore.BLUE + f"Piso: {resultado}")
+        elif opcion == '28':
+            print(Fore.BLUE + f"Techo: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
