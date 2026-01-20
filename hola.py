@@ -30,6 +30,10 @@ def mcm(a, b):
     if not (float(a).is_integer() and float(b).is_integer()):
         return "Error: MCM solo está definido para enteros."
     return math.lcm(int(a), int(b))
+
+def piso(a):
+    """Devuelve el piso de un número (el entero más grande menor o igual a a)."""
+    return math.floor(a)
 def tangente(a):
     """Devuelve la tangente de un ángulo en radianes."""
     return math.tan(a)
@@ -157,12 +161,13 @@ def main():
         print(Fore.MAGENTA + "  24. Signo")
         print(Fore.MAGENTA + "  25. MCD")
         print(Fore.MAGENTA + "  26. MCM")
-        print(Fore.RED + "  27. Salir")
+        print(Fore.MAGENTA + "  27. Piso")
+        print(Fore.RED + "  28. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28): ").strip()
 
-        if opcion == '27':
+        if opcion == '28':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -234,6 +239,8 @@ def main():
             resultado = mcd(a, b)
         elif opcion == '26':
             resultado = mcm(a, b)
+        elif opcion == '27':
+            resultado = piso(a)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
@@ -276,6 +283,8 @@ def main():
             print(Fore.BLUE + f"MCD: {resultado}")
         elif opcion == '26':
             print(Fore.BLUE + f"MCM: {resultado}")
+        elif opcion == '27':
+            print(Fore.BLUE + f"Piso: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
