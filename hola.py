@@ -38,6 +38,12 @@ def piso(a):
 def techo(a):
     """Devuelve el techo de un número (el entero más pequeño mayor o igual a a)."""
     return math.ceil(a)
+
+def combinaciones(n, k):
+    """Devuelve el número de combinaciones de n elementos tomados de k en k."""
+    if not (float(n).is_integer() and float(k).is_integer()) or n < 0 or k < 0 or k > n:
+        return "Error: n y k deben ser enteros no negativos con k <= n."
+    return math.comb(int(n), int(k))
 def tangente(a):
     """Devuelve la tangente de un ángulo en radianes."""
     return math.tan(a)
@@ -167,12 +173,13 @@ def main():
         print(Fore.MAGENTA + "  26. MCM")
         print(Fore.MAGENTA + "  27. Piso")
         print(Fore.MAGENTA + "  28. Techo")
-        print(Fore.RED + "  29. Salir")
+        print(Fore.MAGENTA + "  29. Combinaciones")
+        print(Fore.RED + "  30. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30): ").strip()
 
-        if opcion == '29':
+        if opcion == '30':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -185,7 +192,7 @@ def main():
                     print(Fore.RED + "Error: No se puede dividir por cero.")
                     input(Fore.WHITE + "Presiona Enter para continuar...")
                     continue
-            elif opcion in ['1','2','3','5','6','8','9','10','13','23','25','26']:
+            elif opcion in ['1','2','3','5','6','8','9','10','13','23','25','26','29']:
                 b = float(input(Fore.WHITE + "Ingresa el segundo número: "))
         except ValueError:
             print(Fore.RED + "Error: Ingresa solo números válidos.")
@@ -248,6 +255,8 @@ def main():
             resultado = piso(a)
         elif opcion == '28':
             resultado = techo(a)
+        elif opcion == '29':
+            resultado = combinaciones(a, b)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
@@ -294,6 +303,8 @@ def main():
             print(Fore.BLUE + f"Piso: {resultado}")
         elif opcion == '28':
             print(Fore.BLUE + f"Techo: {resultado}")
+        elif opcion == '29':
+            print(Fore.BLUE + f"Combinaciones: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
