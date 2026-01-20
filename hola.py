@@ -18,6 +18,12 @@ def signo(a):
         return -1
     else:
         return 0
+
+def mcd(a, b):
+    """Devuelve el máximo común divisor de dos números enteros."""
+    if not (float(a).is_integer() and float(b).is_integer()):
+        return "Error: MCD solo está definido para enteros."
+    return math.gcd(int(a), int(b))
 def tangente(a):
     """Devuelve la tangente de un ángulo en radianes."""
     return math.tan(a)
@@ -143,12 +149,13 @@ def main():
         print(Fore.MAGENTA + "  22. Radianes a grados")
         print(Fore.MAGENTA + "  23. Redondear")
         print(Fore.MAGENTA + "  24. Signo")
-        print(Fore.RED + "  25. Salir")
+        print(Fore.MAGENTA + "  25. MCD")
+        print(Fore.RED + "  26. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26): ").strip()
 
-        if opcion == '25':
+        if opcion == '26':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -161,7 +168,7 @@ def main():
                     print(Fore.RED + "Error: No se puede dividir por cero.")
                     input(Fore.WHITE + "Presiona Enter para continuar...")
                     continue
-            elif opcion in ['1','2','3','5','6','8','9','10','13','23']:
+            elif opcion in ['1','2','3','5','6','8','9','10','13','23','25']:
                 b = float(input(Fore.WHITE + "Ingresa el segundo número: "))
         except ValueError:
             print(Fore.RED + "Error: Ingresa solo números válidos.")
@@ -216,6 +223,8 @@ def main():
             resultado = redondear(a, int(b))
         elif opcion == '24':
             resultado = signo(a)
+        elif opcion == '25':
+            resultado = mcd(a, b)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
@@ -254,6 +263,8 @@ def main():
             print(Fore.BLUE + f"Grados: {resultado}")
         elif opcion == '24':
             print(Fore.BLUE + f"Signo: {resultado}")
+        elif opcion == '25':
+            print(Fore.BLUE + f"MCD: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
