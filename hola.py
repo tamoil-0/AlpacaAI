@@ -24,6 +24,12 @@ def mcd(a, b):
     if not (float(a).is_integer() and float(b).is_integer()):
         return "Error: MCD solo está definido para enteros."
     return math.gcd(int(a), int(b))
+
+def mcm(a, b):
+    """Devuelve el mínimo común múltiplo de dos números enteros."""
+    if not (float(a).is_integer() and float(b).is_integer()):
+        return "Error: MCM solo está definido para enteros."
+    return math.lcm(int(a), int(b))
 def tangente(a):
     """Devuelve la tangente de un ángulo en radianes."""
     return math.tan(a)
@@ -150,12 +156,13 @@ def main():
         print(Fore.MAGENTA + "  23. Redondear")
         print(Fore.MAGENTA + "  24. Signo")
         print(Fore.MAGENTA + "  25. MCD")
-        print(Fore.RED + "  26. Salir")
+        print(Fore.MAGENTA + "  26. MCM")
+        print(Fore.RED + "  27. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27): ").strip()
 
-        if opcion == '26':
+        if opcion == '27':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -168,7 +175,7 @@ def main():
                     print(Fore.RED + "Error: No se puede dividir por cero.")
                     input(Fore.WHITE + "Presiona Enter para continuar...")
                     continue
-            elif opcion in ['1','2','3','5','6','8','9','10','13','23','25']:
+            elif opcion in ['1','2','3','5','6','8','9','10','13','23','25','26']:
                 b = float(input(Fore.WHITE + "Ingresa el segundo número: "))
         except ValueError:
             print(Fore.RED + "Error: Ingresa solo números válidos.")
@@ -225,6 +232,8 @@ def main():
             resultado = signo(a)
         elif opcion == '25':
             resultado = mcd(a, b)
+        elif opcion == '26':
+            resultado = mcm(a, b)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
@@ -265,6 +274,8 @@ def main():
             print(Fore.BLUE + f"Signo: {resultado}")
         elif opcion == '25':
             print(Fore.BLUE + f"MCD: {resultado}")
+        elif opcion == '26':
+            print(Fore.BLUE + f"MCM: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
