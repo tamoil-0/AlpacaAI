@@ -64,6 +64,10 @@ def hipotenusa(a, b):
 def area_triangulo(base, altura):
     """Devuelve el área de un triángulo dado base y altura."""
     return (base * altura) / 2
+
+def area_circulo(radio):
+    """Devuelve el área de un círculo dado el radio."""
+    return math.pi * radio ** 2
 def tangente(a):
     """Devuelve la tangente de un ángulo en radianes."""
     return math.tan(a)
@@ -198,12 +202,13 @@ def main():
         print(Fore.MAGENTA + "  31. Raíz cúbica")
         print(Fore.MAGENTA + "  32. Hipotenusa")
         print(Fore.MAGENTA + "  33. Área triángulo")
-        print(Fore.RED + "  34. Salir")
+        print(Fore.MAGENTA + "  34. Área círculo")
+        print(Fore.RED + "  35. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35): ").strip()
 
-        if opcion == '34':
+        if opcion == '35':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -289,6 +294,8 @@ def main():
             resultado = hipotenusa(a, b)
         elif opcion == '33':
             resultado = area_triangulo(a, b)
+        elif opcion == '34':
+            resultado = area_circulo(a)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
@@ -345,6 +352,8 @@ def main():
             print(Fore.BLUE + f"Hipotenusa: {resultado}")
         elif opcion == '33':
             print(Fore.BLUE + f"Área triángulo: {resultado}")
+        elif opcion == '34':
+            print(Fore.BLUE + f"Área círculo: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
