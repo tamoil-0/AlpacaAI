@@ -50,6 +50,12 @@ def permutaciones(n, k):
     if not (float(n).is_integer() and float(k).is_integer()) or n < 0 or k < 0 or k > n:
         return "Error: n y k deben ser enteros no negativos con k <= n."
     return math.perm(int(n), int(k))
+
+def raiz_cubica(a):
+    """Devuelve la raíz cúbica de un número."""
+    if a < 0:
+        return complex(0, a ** (1/3))
+    return a ** (1/3)
 def tangente(a):
     """Devuelve la tangente de un ángulo en radianes."""
     return math.tan(a)
@@ -181,12 +187,13 @@ def main():
         print(Fore.MAGENTA + "  28. Techo")
         print(Fore.MAGENTA + "  29. Combinaciones")
         print(Fore.MAGENTA + "  30. Permutaciones")
-        print(Fore.RED + "  31. Salir")
+        print(Fore.MAGENTA + "  31. Raíz cúbica")
+        print(Fore.RED + "  32. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32): ").strip()
 
-        if opcion == '31':
+        if opcion == '32':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -266,6 +273,8 @@ def main():
             resultado = combinaciones(a, b)
         elif opcion == '30':
             resultado = permutaciones(a, b)
+        elif opcion == '31':
+            resultado = raiz_cubica(a)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
@@ -316,6 +325,8 @@ def main():
             print(Fore.BLUE + f"Combinaciones: {resultado}")
         elif opcion == '30':
             print(Fore.BLUE + f"Permutaciones: {resultado}")
+        elif opcion == '31':
+            print(Fore.BLUE + f"Raíz cúbica: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
