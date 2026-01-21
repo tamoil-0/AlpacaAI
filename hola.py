@@ -56,6 +56,10 @@ def raiz_cubica(a):
     if a < 0:
         return complex(0, a ** (1/3))
     return a ** (1/3)
+
+def hipotenusa(a, b):
+    """Devuelve la hipotenusa de un triángulo rectángulo dado los catetos a y b."""
+    return math.sqrt(a**2 + b**2)
 def tangente(a):
     """Devuelve la tangente de un ángulo en radianes."""
     return math.tan(a)
@@ -188,12 +192,13 @@ def main():
         print(Fore.MAGENTA + "  29. Combinaciones")
         print(Fore.MAGENTA + "  30. Permutaciones")
         print(Fore.MAGENTA + "  31. Raíz cúbica")
-        print(Fore.RED + "  32. Salir")
+        print(Fore.MAGENTA + "  32. Hipotenusa")
+        print(Fore.RED + "  33. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33): ").strip()
 
-        if opcion == '32':
+        if opcion == '33':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -275,6 +280,8 @@ def main():
             resultado = permutaciones(a, b)
         elif opcion == '31':
             resultado = raiz_cubica(a)
+        elif opcion == '32':
+            resultado = hipotenusa(a, b)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
@@ -327,6 +334,8 @@ def main():
             print(Fore.BLUE + f"Permutaciones: {resultado}")
         elif opcion == '31':
             print(Fore.BLUE + f"Raíz cúbica: {resultado}")
+        elif opcion == '32':
+            print(Fore.BLUE + f"Hipotenusa: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
