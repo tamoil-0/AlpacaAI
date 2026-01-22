@@ -72,6 +72,10 @@ def area_circulo(radio):
 def volumen_cubo(lado):
     """Devuelve el volumen de un cubo dado el lado."""
     return lado ** 3
+
+def distancia_euclidiana(a, b):
+    """Devuelve la distancia euclidiana entre dos puntos a y b en una línea."""
+    return abs(a - b)
 def tangente(a):
     """Devuelve la tangente de un ángulo en radianes."""
     return math.tan(a)
@@ -208,12 +212,13 @@ def main():
         print(Fore.MAGENTA + "  33. Área triángulo")
         print(Fore.MAGENTA + "  34. Área círculo")
         print(Fore.MAGENTA + "  35. Volumen cubo")
-        print(Fore.RED + "  36. Salir")
+        print(Fore.MAGENTA + "  36. Distancia euclidiana")
+        print(Fore.RED + "  37. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36/37): ").strip()
 
-        if opcion == '36':
+        if opcion == '37':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -303,6 +308,8 @@ def main():
             resultado = area_circulo(a)
         elif opcion == '35':
             resultado = volumen_cubo(a)
+        elif opcion == '36':
+            resultado = distancia_euclidiana(a, b)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
@@ -363,6 +370,8 @@ def main():
             print(Fore.BLUE + f"Área círculo: {resultado}")
         elif opcion == '35':
             print(Fore.BLUE + f"Volumen cubo: {resultado}")
+        elif opcion == '36':
+            print(Fore.BLUE + f"Distancia euclidiana: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
