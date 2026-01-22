@@ -88,6 +88,12 @@ def area_cuadrado(lado):
 def volumen_esfera(radio):
     """Devuelve el volumen de una esfera dado el radio."""
     return (4/3) * math.pi * radio ** 3
+
+def logaritmo_arbitrario(a, base):
+    """Devuelve el logaritmo de a en base base."""
+    if a <= 0 or base <= 0 or base == 1:
+        return "Error: a debe ser positivo, base positiva y diferente de 1."
+    return math.log(a, base)
 def tangente(a):
     """Devuelve la tangente de un ángulo en radianes."""
     return math.tan(a)
@@ -228,12 +234,13 @@ def main():
         print(Fore.MAGENTA + "  37. Perímetro círculo")
         print(Fore.MAGENTA + "  38. Área cuadrado")
         print(Fore.MAGENTA + "  39. Volumen esfera")
-        print(Fore.RED + "  40. Salir")
+        print(Fore.MAGENTA + "  40. Logaritmo arbitrario")
+        print(Fore.RED + "  41. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36/37/38/39/40): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36/37/38/39/40/41): ").strip()
 
-        if opcion == '40':
+        if opcion == '41':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -331,6 +338,8 @@ def main():
             resultado = area_cuadrado(a)
         elif opcion == '39':
             resultado = volumen_esfera(a)
+        elif opcion == '40':
+            resultado = logaritmo_arbitrario(a, b)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
@@ -399,6 +408,8 @@ def main():
             print(Fore.BLUE + f"Área cuadrado: {resultado}")
         elif opcion == '39':
             print(Fore.BLUE + f"Volumen esfera: {resultado}")
+        elif opcion == '40':
+            print(Fore.BLUE + f"Logaritmo arbitrario: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
