@@ -76,6 +76,10 @@ def volumen_cubo(lado):
 def distancia_euclidiana(a, b):
     """Devuelve la distancia euclidiana entre dos puntos a y b en una línea."""
     return abs(a - b)
+
+def perimetro_circulo(radio):
+    """Devuelve el perímetro de un círculo dado el radio."""
+    return 2 * math.pi * radio
 def tangente(a):
     """Devuelve la tangente de un ángulo en radianes."""
     return math.tan(a)
@@ -213,12 +217,13 @@ def main():
         print(Fore.MAGENTA + "  34. Área círculo")
         print(Fore.MAGENTA + "  35. Volumen cubo")
         print(Fore.MAGENTA + "  36. Distancia euclidiana")
-        print(Fore.RED + "  37. Salir")
+        print(Fore.MAGENTA + "  37. Perímetro círculo")
+        print(Fore.RED + "  38. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36/37): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36/37/38): ").strip()
 
-        if opcion == '37':
+        if opcion == '38':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -310,6 +315,8 @@ def main():
             resultado = volumen_cubo(a)
         elif opcion == '36':
             resultado = distancia_euclidiana(a, b)
+        elif opcion == '37':
+            resultado = perimetro_circulo(a)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
@@ -372,6 +379,8 @@ def main():
             print(Fore.BLUE + f"Volumen cubo: {resultado}")
         elif opcion == '36':
             print(Fore.BLUE + f"Distancia euclidiana: {resultado}")
+        elif opcion == '37':
+            print(Fore.BLUE + f"Perímetro círculo: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
