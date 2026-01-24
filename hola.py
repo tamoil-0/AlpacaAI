@@ -108,6 +108,10 @@ def descuento(precio, porcentaje):
 def incremento(precio, porcentaje):
     """Devuelve el precio después de aplicar un incremento porcentual."""
     return precio + (precio * porcentaje / 100)
+
+def perimetro_rectangulo(base, altura):
+    """Devuelve el perímetro de un rectángulo dada la base y altura."""
+    return 2 * (base + altura)
 def tangente(a):
     """Devuelve la tangente de un ángulo en radianes."""
     return math.tan(a)
@@ -252,12 +256,13 @@ def main():
         print(Fore.MAGENTA + "  41. Media geométrica")
         print(Fore.MAGENTA + "  42. Descuento")
         print(Fore.MAGENTA + "  43. Incremento")
-        print(Fore.RED + "  44. Salir")
+        print(Fore.MAGENTA + "  44. Perímetro rectángulo")
+        print(Fore.RED + "  45. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36/37/38/39/40/41/42/43/44): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36/37/38/39/40/41/42/43/44/45): ").strip()
 
-        if opcion == '44':
+        if opcion == '45':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -270,7 +275,7 @@ def main():
                     print(Fore.RED + "Error: No se puede dividir por cero.")
                     input(Fore.WHITE + "Presiona Enter para continuar...")
                     continue
-            elif opcion in ['1','2','3','5','6','8','9','10','13','23','25','26','29','30','32','33','36','40','41','42','43']:
+            elif opcion in ['1','2','3','5','6','8','9','10','13','23','25','26','29','30','32','33','36','40','41','42','43','44']:
                 b = float(input(Fore.WHITE + "Ingresa el segundo número: "))
         except ValueError:
             print(Fore.RED + "Error: Ingresa solo números válidos.")
@@ -363,6 +368,8 @@ def main():
             resultado = descuento(a, b)
         elif opcion == '43':
             resultado = incremento(a, b)
+        elif opcion == '44':
+            resultado = perimetro_rectangulo(a, b)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
@@ -439,6 +446,8 @@ def main():
             print(Fore.BLUE + f"Precio con descuento: {resultado}")
         elif opcion == '43':
             print(Fore.BLUE + f"Precio con incremento: {resultado}")
+        elif opcion == '44':
+            print(Fore.BLUE + f"Perímetro rectángulo: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
