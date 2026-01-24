@@ -104,6 +104,10 @@ def media_geometrica(a, b):
 def descuento(precio, porcentaje):
     """Devuelve el precio después de aplicar un descuento porcentual."""
     return precio - (precio * porcentaje / 100)
+
+def incremento(precio, porcentaje):
+    """Devuelve el precio después de aplicar un incremento porcentual."""
+    return precio + (precio * porcentaje / 100)
 def tangente(a):
     """Devuelve la tangente de un ángulo en radianes."""
     return math.tan(a)
@@ -247,12 +251,13 @@ def main():
         print(Fore.MAGENTA + "  40. Logaritmo arbitrario")
         print(Fore.MAGENTA + "  41. Media geométrica")
         print(Fore.MAGENTA + "  42. Descuento")
-        print(Fore.RED + "  43. Salir")
+        print(Fore.MAGENTA + "  43. Incremento")
+        print(Fore.RED + "  44. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36/37/38/39/40/41/42/43): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36/37/38/39/40/41/42/43/44): ").strip()
 
-        if opcion == '43':
+        if opcion == '44':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -265,7 +270,7 @@ def main():
                     print(Fore.RED + "Error: No se puede dividir por cero.")
                     input(Fore.WHITE + "Presiona Enter para continuar...")
                     continue
-            elif opcion in ['1','2','3','5','6','8','9','10','13','23','25','26','29','30','32','33','36','40','41','42']:
+            elif opcion in ['1','2','3','5','6','8','9','10','13','23','25','26','29','30','32','33','36','40','41','42','43']:
                 b = float(input(Fore.WHITE + "Ingresa el segundo número: "))
         except ValueError:
             print(Fore.RED + "Error: Ingresa solo números válidos.")
@@ -356,6 +361,8 @@ def main():
             resultado = media_geometrica(a, b)
         elif opcion == '42':
             resultado = descuento(a, b)
+        elif opcion == '43':
+            resultado = incremento(a, b)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
@@ -430,6 +437,8 @@ def main():
             print(Fore.BLUE + f"Media geométrica: {resultado}")
         elif opcion == '42':
             print(Fore.BLUE + f"Precio con descuento: {resultado}")
+        elif opcion == '43':
+            print(Fore.BLUE + f"Precio con incremento: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
