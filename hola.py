@@ -94,6 +94,12 @@ def logaritmo_arbitrario(a, base):
     if a <= 0 or base <= 0 or base == 1:
         return "Error: a debe ser positivo, base positiva y diferente de 1."
     return math.log(a, base)
+
+def media_geometrica(a, b):
+    """Devuelve la media geométrica de dos números."""
+    if a < 0 or b < 0:
+        return "Error: Los números deben ser no negativos."
+    return math.sqrt(a * b)
 def tangente(a):
     """Devuelve la tangente de un ángulo en radianes."""
     return math.tan(a)
@@ -235,12 +241,13 @@ def main():
         print(Fore.MAGENTA + "  38. Área cuadrado")
         print(Fore.MAGENTA + "  39. Volumen esfera")
         print(Fore.MAGENTA + "  40. Logaritmo arbitrario")
-        print(Fore.RED + "  41. Salir")
+        print(Fore.MAGENTA + "  41. Media geométrica")
+        print(Fore.RED + "  42. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36/37/38/39/40/41): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36/37/38/39/40/41/42): ").strip()
 
-        if opcion == '41':
+        if opcion == '42':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -253,7 +260,7 @@ def main():
                     print(Fore.RED + "Error: No se puede dividir por cero.")
                     input(Fore.WHITE + "Presiona Enter para continuar...")
                     continue
-            elif opcion in ['1','2','3','5','6','8','9','10','13','23','25','26','29','30']:
+            elif opcion in ['1','2','3','5','6','8','9','10','13','23','25','26','29','30','32','33','36','40','41']:
                 b = float(input(Fore.WHITE + "Ingresa el segundo número: "))
         except ValueError:
             print(Fore.RED + "Error: Ingresa solo números válidos.")
@@ -340,6 +347,8 @@ def main():
             resultado = volumen_esfera(a)
         elif opcion == '40':
             resultado = logaritmo_arbitrario(a, b)
+        elif opcion == '41':
+            resultado = media_geometrica(a, b)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
@@ -410,6 +419,8 @@ def main():
             print(Fore.BLUE + f"Volumen esfera: {resultado}")
         elif opcion == '40':
             print(Fore.BLUE + f"Logaritmo arbitrario: {resultado}")
+        elif opcion == '41':
+            print(Fore.BLUE + f"Media geométrica: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
