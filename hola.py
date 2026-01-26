@@ -133,6 +133,10 @@ def media_armonica(a, b):
     if a == 0 or b == 0:
         return "Error: Los números no pueden ser cero."
     return 2 / (1/a + 1/b)
+
+def suma_cuadrados(a, b):
+    """Devuelve la suma de los cuadrados de dos números."""
+    return a**2 + b**2
 def tangente(a):
     """Devuelve la tangente de un ángulo en radianes."""
     return math.tan(a)
@@ -282,12 +286,13 @@ def main():
         print(Fore.MAGENTA + "  46. Volumen cilindro")
         print(Fore.MAGENTA + "  47. Área trapecio")
         print(Fore.MAGENTA + "  48. Media armónica")
-        print(Fore.RED + "  49. Salir")
+        print(Fore.MAGENTA + "  49. Suma de cuadrados")
+        print(Fore.RED + "  50. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36/37/38/39/40/41/42/43/44/45/46/47/48/49): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36/37/38/39/40/41/42/43/44/45/46/47/48/49/50): ").strip()
 
-        if opcion == '49':
+        if opcion == '50':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -300,7 +305,7 @@ def main():
                     print(Fore.RED + "Error: No se puede dividir por cero.")
                     input(Fore.WHITE + "Presiona Enter para continuar...")
                     continue
-            elif opcion in ['1','2','3','5','6','8','9','10','13','23','25','26','29','30','32','33','36','40','41','42','43','44','45','46','47','48']:
+            elif opcion in ['1','2','3','5','6','8','9','10','13','23','25','26','29','30','32','33','36','40','41','42','43','44','45','46','47','48','49']:
                 b = float(input(Fore.WHITE + "Ingresa el segundo número: "))
         except ValueError:
             print(Fore.RED + "Error: Ingresa solo números válidos.")
@@ -403,6 +408,8 @@ def main():
             resultado = area_trapecio(a, b)
         elif opcion == '48':
             resultado = media_armonica(a, b)
+        elif opcion == '49':
+            resultado = suma_cuadrados(a, b)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
@@ -489,6 +496,8 @@ def main():
             print(Fore.BLUE + f"Área trapecio: {resultado}")
         elif opcion == '48':
             print(Fore.BLUE + f"Media armónica: {resultado}")
+        elif opcion == '49':
+            print(Fore.BLUE + f"Suma de cuadrados: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
