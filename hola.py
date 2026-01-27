@@ -170,6 +170,30 @@ def inverso_multiplicativo(a):
         return "Error: No existe inverso multiplicativo para cero."
     return 1/a
 
+def cotangente(a):
+    """Devuelve la cotangente de un ángulo en radianes."""
+    return 1 / math.tan(a)
+
+def secante(a):
+    """Devuelve la secante de un ángulo en radianes."""
+    return 1 / math.cos(a)
+
+def cosecante(a):
+    """Devuelve la cosecante de un ángulo en radianes."""
+    return 1 / math.sin(a)
+
+def arcoseno(a):
+    """Devuelve el arcoseno de un número entre -1 y 1."""
+    if not -1 <= a <= 1:
+        return "Error: Arcoseno definido para [-1,1]"
+    return math.asin(a)
+
+def arcocoseno(a):
+    """Devuelve el arcocoseno de un número entre -1 y 1."""
+    if not -1 <= a <= 1:
+        return "Error: Arcocoseno definido para [-1,1]"
+    return math.acos(a)
+
 def tangente(a):
     """Devuelve la tangente de un ángulo en radianes."""
     return math.tan(a)
@@ -327,12 +351,16 @@ def main():
         print(Fore.MAGENTA + "  54. Potencia n")
         print(Fore.MAGENTA + "  55. Inverso aditivo")
         print(Fore.MAGENTA + "  56. Inverso multiplicativo")
-        print(Fore.RED + "  57. Salir")
+        print(Fore.MAGENTA + "  57. Cotangente")
+        print(Fore.MAGENTA + "  58. Secante")
+        print(Fore.MAGENTA + "  59. Cosecante")
+        print(Fore.MAGENTA + "  60. Arcoseno")
+        print(Fore.MAGENTA + "  61. Arcocoseno")
+        print(Fore.RED + "  62. Salir")
         print(Fore.CYAN + "----------------------------")
+        opcion = input(Fore.WHITE + "Elige una opción (1-62): ").strip()
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36/37/38/39/40/41/42/43/44/45/46/47/48/49/50/51): ").strip()
-
-        if opcion == '51':
+        if opcion == '62':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -464,7 +492,16 @@ def main():
             resultado = inverso_aditivo(a)
         elif opcion == '56':
             resultado = inverso_multiplicativo(a)
-        else:
+        elif opcion == '57':
+            resultado = cotangente(a)
+        elif opcion == '58':
+            resultado = secante(a)
+        elif opcion == '59':
+            resultado = cosecante(a)
+        elif opcion == '60':
+            resultado = arcoseno(a)
+        elif opcion == '61':
+            resultado = arcocoseno(a)
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
             continue
@@ -566,7 +603,16 @@ def main():
             print(Fore.BLUE + f"Inverso aditivo: {resultado}")
         elif opcion == '56':
             print(Fore.BLUE + f"Inverso multiplicativo: {resultado}")
-        elif isinstance(resultado, float):
+        elif opcion == '57':
+            print(Fore.BLUE + f"Cotangente: {resultado}")
+        elif opcion == '58':
+            print(Fore.BLUE + f"Secante: {resultado}")
+        elif opcion == '59':
+            print(Fore.BLUE + f"Cosecante: {resultado}")
+        elif opcion == '60':
+            print(Fore.BLUE + f"Arcoseno: {resultado}")
+        elif opcion == '61':
+            print(Fore.BLUE + f"Arcocoseno: {resultado}")
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
             print(Fore.BLUE + f"Resultado: {resultado}")
