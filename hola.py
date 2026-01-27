@@ -141,6 +141,35 @@ def suma_cuadrados(a, b):
 def diferencia_cuadrados(a, b):
     """Devuelve la diferencia de los cuadrados de dos números (a² - b²)."""
     return a**2 - b**2
+
+def producto_cuadrados(a, b):
+    """Devuelve el producto de los cuadrados de dos números (a² × b²)."""
+    return a**2 * b**2
+
+def promedio_ponderado(a, b, peso_a=0.5, peso_b=0.5):
+    """Devuelve el promedio ponderado de dos números con pesos opcionales."""
+    return a * peso_a + b * peso_b
+
+def raiz_n(a, n):
+    """Devuelve la raíz n-ésima de un número."""
+    if n == 0:
+        return "Error: n no puede ser cero."
+    return a ** (1/n)
+
+def potencia_n(a, n):
+    """Devuelve a elevado a la n."""
+    return a ** n
+
+def inverso_aditivo(a):
+    """Devuelve el inverso aditivo de un número (-a)."""
+    return -a
+
+def inverso_multiplicativo(a):
+    """Devuelve el inverso multiplicativo de un número (1/a)."""
+    if a == 0:
+        return "Error: No existe inverso multiplicativo para cero."
+    return 1/a
+
 def tangente(a):
     """Devuelve la tangente de un ángulo en radianes."""
     return math.tan(a)
@@ -292,12 +321,18 @@ def main():
         print(Fore.MAGENTA + "  48. Media armónica")
         print(Fore.MAGENTA + "  49. Suma de cuadrados")
         print(Fore.MAGENTA + "  50. Diferencia de cuadrados")
-        print(Fore.RED + "  51. Salir")
+        print(Fore.MAGENTA + "  51. Producto de cuadrados")
+        print(Fore.MAGENTA + "  52. Promedio ponderado")
+        print(Fore.MAGENTA + "  53. Raíz n-ésima")
+        print(Fore.MAGENTA + "  54. Potencia n")
+        print(Fore.MAGENTA + "  55. Inverso aditivo")
+        print(Fore.MAGENTA + "  56. Inverso multiplicativo")
+        print(Fore.RED + "  57. Salir")
         print(Fore.CYAN + "----------------------------")
 
-        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36/37/38/39/40/41/42/43/44/45/46/47/48/49/50/51): ").strip()
+        opcion = input(Fore.WHITE + "Elige una opción (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24/25/26/27/28/29/30/31/32/33/34/35/36/37/38/39/40/41/42/43/44/45/46/47/48/49/50/51/52/53/54/55/56/57): ").strip()
 
-        if opcion == '51':
+        if opcion == '57':
             print(Fore.YELLOW + "¡Hasta luego!")
             time.sleep(1)
             break
@@ -310,7 +345,7 @@ def main():
                     print(Fore.RED + "Error: No se puede dividir por cero.")
                     input(Fore.WHITE + "Presiona Enter para continuar...")
                     continue
-            elif opcion in ['1','2','3','5','6','8','9','10','13','23','25','26','29','30','32','33','36','40','41','42','43','44','45','46','47','48','49','50']:
+            elif opcion in ['1','2','3','5','6','8','9','10','13','23','25','26','29','30','32','33','36','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56']:
                 b = float(input(Fore.WHITE + "Ingresa el segundo número: "))
         except ValueError:
             print(Fore.RED + "Error: Ingresa solo números válidos.")
@@ -417,6 +452,18 @@ def main():
             resultado = suma_cuadrados(a, b)
         elif opcion == '50':
             resultado = diferencia_cuadrados(a, b)
+        elif opcion == '51':
+            resultado = producto_cuadrados(a, b)
+        elif opcion == '52':
+            resultado = promedio_ponderado(a, b)
+        elif opcion == '53':
+            resultado = raiz_n(a, b)
+        elif opcion == '54':
+            resultado = potencia_n(a, b)
+        elif opcion == '55':
+            resultado = inverso_aditivo(a)
+        elif opcion == '56':
+            resultado = inverso_multiplicativo(a)
         else:
             print(Fore.RED + "Opción no válida")
             input(Fore.WHITE + "Presiona Enter para continuar...")
@@ -507,6 +554,18 @@ def main():
             print(Fore.BLUE + f"Suma de cuadrados: {resultado}")
         elif opcion == '50':
             print(Fore.BLUE + f"Diferencia de cuadrados: {resultado}")
+        elif opcion == '51':
+            print(Fore.BLUE + f"Producto de cuadrados: {resultado}")
+        elif opcion == '52':
+            print(Fore.BLUE + f"Promedio ponderado: {resultado}")
+        elif opcion == '53':
+            print(Fore.BLUE + f"Raíz n-ésima: {resultado}")
+        elif opcion == '54':
+            print(Fore.BLUE + f"Potencia n: {resultado}")
+        elif opcion == '55':
+            print(Fore.BLUE + f"Inverso aditivo: {resultado}")
+        elif opcion == '56':
+            print(Fore.BLUE + f"Inverso multiplicativo: {resultado}")
         elif isinstance(resultado, float):
             print(Fore.BLUE + f"Resultado: {resultado:.2f}")
         else:
