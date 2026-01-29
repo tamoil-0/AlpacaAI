@@ -34,3 +34,14 @@ build/
 # Sistema
 .DS_Store
 Thumbs.db
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints
+
+# Logs
+*.log
