@@ -96,5 +96,36 @@ class Calculator:
         return resultado
 
 
+# Función principal de demostración
+if __name__ == "__main__":
+    print("=== Calculadora Científica Avanzada ===")
+    calc = Calculator()
+    
+    # Demostración de operaciones básicas
+    print("\n--- Operaciones Básicas ---")
+    print(f"5 + 3 = {calc.sumar(5, 3)}")
+    print(f"10 - 4 = {calc.restar(10, 4)}")
+    print(f"6 × 7 = {calc.multiplicar(6, 7)}")
+    print(f"20 ÷ 4 = {calc.dividir(20, 4)}")
+    
+    # Demostración de funciones científicas
+    print("\n--- Funciones Científicas ---")
+    print(f"2^8 = {calc.potencia(2, 8)}")
+    print(f"√16 = {calc.raiz_cuadrada(16)}")
+    print(f"5! = {calc.factorial(5)}")
+    
+    # Demostración de trigonometría
+    print("\n--- Funciones Trigonométricas ---")
+    print(f"sin(30°) = {calc.seno(30)}")
+    print(f"cos(60°) = {calc.coseno(60)}")
+    print(f"tan(45°) = {calc.tangente(45)}")
+    
+    # Mostrar historial
+    print("\n--- Historial de Operaciones ---")
+    for operacion in calc.historial:
+        print(f"  {operacion}")
+
+
+
 
 
