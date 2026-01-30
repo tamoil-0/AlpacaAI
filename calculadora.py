@@ -43,5 +43,30 @@ class Calculator:
         resultado = a / b
         self.historial.append(f"{a} ÷ {b} = {resultado}")
         return resultado
+    
+    def potencia(self, base, exponente):
+        """Calcula la potencia de un número"""
+        resultado = base ** exponente
+        self.historial.append(f"{base}^{exponente} = {resultado}")
+        return resultado
+    
+    def raiz_cuadrada(self, n):
+        """Calcula la raíz cuadrada"""
+        if n < 0:
+            raise ValueError("No se puede calcular raíz cuadrada de número negativo")
+        resultado = math.sqrt(n)
+        self.historial.append(f"√{n} = {resultado}")
+        return resultado
+    
+    def factorial(self, n):
+        """Calcula el factorial de un número"""
+        if n < 0:
+            raise ValueError("No se puede calcular factorial de número negativo")
+        if n > 170:
+            raise ValueError("Número demasiado grande para factorial")
+        resultado = math.factorial(int(n))
+        self.historial.append(f"{n}! = {resultado}")
+        return resultado
+
 
 
