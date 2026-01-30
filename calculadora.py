@@ -67,6 +67,34 @@ class Calculator:
         resultado = math.factorial(int(n))
         self.historial.append(f"{n}! = {resultado}")
         return resultado
+    
+    def seno(self, angulo, grados=True):
+        """Calcula el seno de un ángulo"""
+        if grados:
+            angulo = math.radians(angulo)
+        resultado = math.sin(angulo)
+        unidad = "°" if grados else "rad"
+        self.historial.append(f"sin({angulo}{unidad}) = {resultado}")
+        return resultado
+    
+    def coseno(self, angulo, grados=True):
+        """Calcula el coseno de un ángulo"""
+        if grados:
+            angulo = math.radians(angulo)
+        resultado = math.cos(angulo)
+        unidad = "°" if grados else "rad"
+        self.historial.append(f"cos({angulo}{unidad}) = {resultado}")
+        return resultado
+    
+    def tangente(self, angulo, grados=True):
+        """Calcula la tangente de un ángulo"""
+        if grados:
+            angulo = math.radians(angulo)
+        resultado = math.tan(angulo)
+        unidad = "°" if grados else "rad"
+        self.historial.append(f"tan({angulo}{unidad}) = {resultado}")
+        return resultado
+
 
 
 
