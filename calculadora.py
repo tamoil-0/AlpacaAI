@@ -17,4 +17,31 @@ class Calculator:
         """Inicializa la calculadora"""
         self.resultado = 0
         self.historial = []
+    
+    def sumar(self, a, b):
+        """Suma dos números"""
+        resultado = a + b
+        self.historial.append(f"{a} + {b} = {resultado}")
+        return resultado
+    
+    def restar(self, a, b):
+        """Resta dos números"""
+        resultado = a - b
+        self.historial.append(f"{a} - {b} = {resultado}")
+        return resultado
+    
+    def multiplicar(self, a, b):
+        """Multiplica dos números"""
+        resultado = a * b
+        self.historial.append(f"{a} × {b} = {resultado}")
+        return resultado
+    
+    def dividir(self, a, b):
+        """Divide dos números"""
+        if b == 0:
+            raise ValueError("No se puede dividir por cero")
+        resultado = a / b
+        self.historial.append(f"{a} ÷ {b} = {resultado}")
+        return resultado
+
 
