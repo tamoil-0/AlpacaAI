@@ -94,6 +94,30 @@ class Calculator:
         unidad = "°" if grados else "rad"
         self.historial.append(f"tan({angulo}{unidad}) = {resultado}")
         return resultado
+    
+    def logaritmo(self, n, base=10):
+        """Calcula el logaritmo en base especificada"""
+        if n <= 0:
+            raise ValueError("No se puede calcular logaritmo de número no positivo")
+        if base <= 0 or base == 1:
+            raise ValueError("Base de logaritmo inválida")
+        resultado = math.log(n, base)
+        self.historial.append(f"log_{base}({n}) = {resultado}")
+        return resultado
+    
+    def logaritmo_natural(self, n):
+        """Calcula el logaritmo natural (ln)"""
+        if n <= 0:
+            raise ValueError("No se puede calcular logaritmo de número no positivo")
+        resultado = math.log(n)
+        self.historial.append(f"ln({n}) = {resultado}")
+        return resultado
+    
+    def exponencial(self, n):
+        """Calcula e^n"""
+        resultado = math.exp(n)
+        self.historial.append(f"e^{n} = {resultado}")
+        return resultado
 
 
 # Función principal de demostración
