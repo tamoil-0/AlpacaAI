@@ -18,6 +18,31 @@ class Calculator:
         self.resultado = 0
         self.historial = []
     
+    def limpiar_historial(self):
+        """Limpia el historial de operaciones"""
+        self.historial = []
+        return "Historial limpiado"
+    
+    def obtener_ultimo_resultado(self):
+        """Retorna el último resultado calculado"""
+        if not self.historial:
+            return None
+        return self.resultado
+    
+    def valor_absoluto(self, n):
+        """Calcula el valor absoluto de un número"""
+        resultado = abs(n)
+        self.historial.append(f"|{n}| = {resultado}")
+        return resultado
+    
+    def modulo(self, a, b):
+        """Calcula el módulo (resto de la división)"""
+        if b == 0:
+            raise ValueError("No se puede calcular módulo con divisor cero")
+        resultado = a % b
+        self.historial.append(f"{a} mod {b} = {resultado}")
+        return resultado
+    
     def sumar(self, a, b):
         """Suma dos números"""
         resultado = a + b
