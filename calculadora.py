@@ -118,6 +118,34 @@ class Calculator:
         resultado = math.exp(n)
         self.historial.append(f"e^{n} = {resultado}")
         return resultado
+    
+    def raiz_n(self, numero, indice):
+        """Calcula la raíz enésima de un número"""
+        if numero < 0 and indice % 2 == 0:
+            raise ValueError("No se puede calcular raíz par de número negativo")
+        if indice == 0:
+            raise ValueError("Índice de raíz no puede ser cero")
+        resultado = numero ** (1 / indice)
+        self.historial.append(f"{indice}√{numero} = {resultado}")
+        return resultado
+    
+    def porcentaje(self, cantidad, porcentaje):
+        """Calcula el porcentaje de una cantidad"""
+        resultado = (cantidad * porcentaje) / 100
+        self.historial.append(f"{porcentaje}% de {cantidad} = {resultado}")
+        return resultado
+    
+    def agregar_porcentaje(self, cantidad, porcentaje):
+        """Agrega un porcentaje a una cantidad"""
+        resultado = cantidad * (1 + porcentaje / 100)
+        self.historial.append(f"{cantidad} + {porcentaje}% = {resultado}")
+        return resultado
+    
+    def reducir_porcentaje(self, cantidad, porcentaje):
+        """Reduce un porcentaje de una cantidad"""
+        resultado = cantidad * (1 - porcentaje / 100)
+        self.historial.append(f"{cantidad} - {porcentaje}% = {resultado}")
+        return resultado
 
 
 # Función principal de demostración
