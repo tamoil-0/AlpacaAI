@@ -146,6 +146,37 @@ class Calculator:
         resultado = cantidad * (1 - porcentaje / 100)
         self.historial.append(f"{cantidad} - {porcentaje}% = {resultado}")
         return resultado
+    
+    def media(self, numeros):
+        """Calcula la media aritmética de una lista de números"""
+        if len(numeros) == 0:
+            raise ValueError("La lista no puede estar vacía")
+        resultado = sum(numeros) / len(numeros)
+        self.historial.append(f"Media de {numeros} = {resultado}")
+        return resultado
+    
+    def mediana(self, numeros):
+        """Calcula la mediana de una lista de números"""
+        if len(numeros) == 0:
+            raise ValueError("La lista no puede estar vacía")
+        ordenados = sorted(numeros)
+        n = len(ordenados)
+        if n % 2 == 0:
+            resultado = (ordenados[n//2-1] + ordenados[n//2]) / 2
+        else:
+            resultado = ordenados[n//2]
+        self.historial.append(f"Mediana de {numeros} = {resultado}")
+        return resultado
+    
+    def desviacion_estandar(self, numeros):
+        """Calcula la desviación estándar de una lista de números"""
+        if len(numeros) == 0:
+            raise ValueError("La lista no puede estar vacía")
+        media = sum(numeros) / len(numeros)
+        varianza = sum((x - media) ** 2 for x in numeros) / len(numeros)
+        resultado = math.sqrt(varianza)
+        self.historial.append(f"Desv. Est. de {numeros} = {resultado}")
+        return resultado
 
 
 # Función principal de demostración
