@@ -95,6 +95,37 @@ class Calculator:
         self.historial.append(f"tan({angulo}{unidad}) = {resultado}")
         return resultado
     
+    def arcoseno(self, valor, grados=True):
+        """Calcula el arcoseno (inversa del seno)"""
+        if valor < -1 or valor > 1:
+            raise ValueError("El valor debe estar entre -1 y 1")
+        resultado = math.asin(valor)
+        if grados:
+            resultado = math.degrees(resultado)
+        unidad = "°" if grados else "rad"
+        self.historial.append(f"arcsin({valor}) = {resultado}{unidad}")
+        return resultado
+    
+    def arcocoseno(self, valor, grados=True):
+        """Calcula el arcocoseno (inversa del coseno)"""
+        if valor < -1 or valor > 1:
+            raise ValueError("El valor debe estar entre -1 y 1")
+        resultado = math.acos(valor)
+        if grados:
+            resultado = math.degrees(resultado)
+        unidad = "°" if grados else "rad"
+        self.historial.append(f"arccos({valor}) = {resultado}{unidad}")
+        return resultado
+    
+    def arcotangente(self, valor, grados=True):
+        """Calcula la arcotangente (inversa de la tangente)"""
+        resultado = math.atan(valor)
+        if grados:
+            resultado = math.degrees(resultado)
+        unidad = "°" if grados else "rad"
+        self.historial.append(f"arctan({valor}) = {resultado}{unidad}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
