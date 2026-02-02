@@ -95,7 +95,7 @@ class CalculadoraGUI:
         for i in range(8):
             parent.rowconfigure(i, weight=1)
         
-        # Función auxiliar para crear botones científicos
+        # Función auxiliar para crear botones científicos con hover
         def crear_btn_cientifico(texto, fila, col, comando, color="#2c5f7c"):
             btn = tk.Button(
                 parent,
@@ -108,9 +108,19 @@ class CalculadoraGUI:
                 pady=15,
                 cursor="hand2",
                 activebackground="#3a7a9c",
+                relief=tk.FLAT,
                 command=comando
             )
             btn.grid(row=fila, column=col, sticky="nsew", padx=2, pady=2)
+            
+            # Efectos hover
+            def on_enter(e):
+                btn['background'] = '#3a7a9c'
+            def on_leave(e):
+                btn['background'] = color
+            btn.bind("<Enter>", on_enter)
+            btn.bind("<Leave>", on_leave)
+            
             return btn
         
         # Botones trigonométricos
@@ -172,9 +182,29 @@ class CalculadoraGUI:
             cursor="hand2",
             activebackground="#4a4a4a",
             activeforeground="#ffffff",
+            relief=tk.FLAT,
             command=comando
         )
         boton.grid(row=fila, column=columna, columnspan=colspan, sticky="nsew", padx=2, pady=2)
+        
+        # Efectos hover mejorados
+        def on_enter(e):
+            if color == "#ff6b6b":  # Botones rojos
+                boton['background'] = '#ff8585'
+            elif color == "#ff8c00":  # Botones naranja
+                boton['background'] = '#ffa033'
+            elif color == "#4cd964":  # Botón verde
+                boton['background'] = '#66e37a'
+            elif color == "#505050":  # Botones grises
+                boton['background'] = '#656565'
+            else:  # Botones normales
+                boton['background'] = '#4a4a4a'
+        
+        def on_leave(e):
+            boton['background'] = color
+        
+        boton.bind("<Enter>", on_enter)
+        boton.bind("<Leave>", on_leave)
         
         # Configurar peso de las columnas y filas
         for i in range(5):
