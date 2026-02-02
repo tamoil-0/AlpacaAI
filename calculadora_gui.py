@@ -26,17 +26,136 @@ class CalculadoraGUI:
         self.expresion_actual = ""
         self.resultado_mostrado = False
         self.modo_grados = True  # True = grados, False = radianes
+        self.tema_oscuro = True
+        
+        # Base de datos de colores
+        self.colores = {
+            "bg": "#1e1e1e",
+            "bg_display": "#1e1e1e",
+            "fg_display": "#ffffff",
+            "btn_num": "#3a3a3a",
+            "btn_op": "#ff8c00",
+            "btn_sci": "#2c5f7c",
+            "btn_eq": "#4cd964",
+            "btn_del": "#ff6b6b",
+            "text": "#ffffff"
+        }
         
         # Configurar estilo
         self.configurar_estilos()
         
         # Crear componentes
+        self.crear_menu_superior()
         self.crear_display()
         self.crear_frame_principal()
+        
+        # Configurar atajos
+        self.configurar_atajos()
         
     def configurar_estilos(self):
         """Configura los estilos de la aplicación"""
         self.root.configure(bg="#1e1e1e")
+        
+    def crear_menu_superior(self):
+        """Crea la barra superior con opciones"""
+        menu_frame = tk.Frame(self.root, bg="#1e1e1e")
+        menu_frame.pack(fill=tk.X, padx=10, pady=(10, 0))
+        
+        # Botón Historial
+        btn_hist = tk.Button(
+            menu_frame, 
+            text="📜 Historial", 
+            command=self.mostrar_historial,
+            bg="#2d2d2d", fg="#ffffff", bd=0, padx=10, cursor="hand2"
+        )
+        btn_hist.pack(side=tk.LEFT)
+        
+        # Botón Tema
+        btn_tema = tk.Button(
+            menu_frame, 
+            text="🌙/☀️", 
+            command=self.toggle_tema,
+            bg="#2d2d2d", fg="#ffffff", bd=0, padx=10, cursor="hand2"
+        )
+        btn_tema.pack(side=tk.RIGHT)
+        
+    def configurar_atajos(self):
+        """Configura los atajos de teclado"""
+        self.root.bind("<Key>", self.manejar_teclado)
+        self.root.bind("<Return>", lambda e: self.calcular())
+        self.root.bind("<BackSpace>", lambda e: self.borrar_ultimo())
+        self.root.bind("<Escape>", lambda e: self.limpiar())
+        
+    def manejar_teclado(self, event):
+        """Maneja la entrada por teclado"""
+        char = event.char
+        if char.isdigit() or char in ".":
+            self.agregar_numero(char)
+        elif char in "+-*/":
+            mapa = {"*": "×", "/": "÷"}
+            self.agregar_operador(mapa.get(char, char))
+        elif char in "()":
+            self.agregar_caracter(char)
+            
+    def toggle_tema(self):
+        """Cambia entre modo claro y oscuro"""
+        self.tema_oscuro = not self.tema_oscuro
+        
+        if self.tema_oscuro:
+            colores = {
+                "bg": "#1e1e1e", "btn_num": "#3a3a3a", "text": "#ffffff",
+                "bg_display": "#1e1e1e", "fg_display": "#ffffff"
+            }
+        else:
+            colores = {
+                "bg": "#f0f0f0", "btn_num": "#e0e0e0", "text": "#000000",
+                "bg_display": "#ffffff", "fg_display": "#000000"
+            }
+            
+        self.root.configure(bg=colores["bg"])
+        self.frame_botones.configure(bg=colores["bg"])
+        self.display.configure(bg=colores["bg_display"], fg=colores["fg_display"])
+        
+        # Actualizar botones numéricos (simplificado)
+        for widget in self.frame_botones.winfo_children():
+            if isinstance(widget, tk.Button):
+                if widget['text'] in "0123456789.":
+                    widget.configure(bg=colores["btn_num"], fg=colores["text"])
+    
+    def mostrar_historial(self):
+        """Muestra ventana con el historial"""
+        hist_window = tk.Toplevel(self.root)
+        hist_window.title("Historial de Operaciones")
+        hist_window.geometry("400x500")
+        hist_window.configure(bg="#1e1e1e" if self.tema_oscuro else "#f0f0f0")
+        
+        # Lista con scrollbar
+        scrollbar = tk.Scrollbar(hist_window)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        
+        lista = tk.Listbox(
+            hist_window, 
+            yscrollcommand=scrollbar.set,
+            bg="#2d2d2d" if self.tema_oscuro else "#ffffff",
+            fg="#ffffff" if self.tema_oscuro else "#000000",
+            font=("Consolas", 12),
+            bd=0, highlightthickness=0
+        )
+        lista.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
+        scrollbar.config(command=lista.yview)
+        
+        # Llenar historial
+        for item in self.calc.historial:
+            lista.insert(tk.END, item)
+            
+        # Botón limpiar historial
+        btn_limpiar = tk.Button(
+            hist_window,
+            text="Limpiar Historial",
+            command=lambda: [self.calc.limpiar_historial(), lista.delete(0, tk.END)],
+            bg="#ff6b6b", fg="#ffffff", font=("Segoe UI", 10, "bold"), bd=0, pady=10
+        )
+        btn_limpiar.pack(fill=tk.X, padx=10, pady=10)
         
     def crear_display(self):
         """Crea el área de visualización de resultados"""
