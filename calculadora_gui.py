@@ -64,7 +64,8 @@ class CalculadoraGUI:
         # Menú Modo
         modo_menu = tk.Menu(menu_bar, tearoff=0)
         menu_bar.add_cascade(label="Modo", menu=modo_menu)
-        modo_menu.add_command(label="Calculadora Científica", command=lambda: None)  # Placeholder
+        modo_menu.add_command(label="Calculadora Científica", command=lambda: None)
+        modo_menu.add_command(label="Estadística", command=self.abrir_estadistica)
         modo_menu.add_separator()
         modo_menu.add_command(label="Salir", command=self.root.quit)
         
@@ -660,6 +661,86 @@ class CalculadoraGUI:
         """Cambia entre grados y radianes"""
         self.modo_grados = not self.modo_grados
         self.btn_modo.config(text="DEG" if self.modo_grados else "RAD")
+
+    def abrir_estadistica(self):
+        """Abre el módulo de estadísticas"""
+        ventana = tk.Toplevel(self.root)
+        ventana.title("Estadística")
+        ventana.geometry("400x500")
+        ventana.configure(bg=self.colores["bg"])
+        
+        # Etiqueta de instrucciones
+        tk.Label(
+            ventana,
+            text="Ingrese números separados por comas:",
+            font=("Segoe UI", 10),
+            bg=self.colores["bg"],
+            fg=self.colores["text"]
+        ).pack(pady=10)
+        
+        # Área de entrada
+        entrada = tk.Entry(
+            ventana,
+            font=("Segoe UI", 12),
+            bg="#2d2d2d",
+            fg="#ffffff"
+        )
+        entrada.pack(fill=tk.X, padx=20)
+        entrada.focus()
+        
+        # Área de resultados
+        resultados_frame = tk.Frame(ventana, bg=self.colores["bg"])
+        resultados_frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
+        
+        lbl_res = tk.Label(
+            resultados_frame,
+            text="",
+            font=("Consolas", 11),
+            justify=tk.LEFT,
+            bg=self.colores["bg"],
+            fg=self.colores["text"]
+        )
+        lbl_res.pack()
+        
+        def calcular():
+            try:
+                texto = entrada.get()
+                # Permitir comas o espacios
+                texto = texto.replace(" ", ",")
+                numeros = [float(x) for x in texto.split(",") if x.strip()]
+                
+                if not numeros:
+                    return
+                
+                media = self.calc.media(numeros)
+                mediana = self.calc.mediana(numeros)
+                stdev = self.calc.desviacion_estandar(numeros)
+                
+                res_texto = (
+                    f"Cantidad:    {len(numeros)}\n"
+                    f"Suma:        {sum(numeros):.4f}\n"
+                    f"Mínimo:      {min(numeros):.4f}\n"
+                    f"Máximo:      {max(numeros):.4f}\n"
+                    f"--------------------\n"
+                    f"Media:       {media:.4f}\n"
+                    f"Mediana:     {mediana:.4f}\n"
+                    f"Desv. Est.:  {stdev:.4f}"
+                )
+                lbl_res.config(text=res_texto)
+                
+            except Exception as e:
+                messagebox.showerror("Error", f"Datos inválidos: {str(e)}")
+        
+        # Botón Calcular
+        tk.Button(
+            ventana,
+            text="Calcular Estadísticas",
+            command=calcular,
+            bg=self.colores["btn_op"],
+            fg="#ffffff",
+            font=("Segoe UI", 11, "bold"),
+            bd=0, pady=10, cursor="hand2"
+        ).pack(fill=tk.X, padx=20, pady=(0, 20))
 
 
 def main():
