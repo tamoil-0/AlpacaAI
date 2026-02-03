@@ -57,27 +57,38 @@ class CalculadoraGUI:
         self.root.configure(bg="#1e1e1e")
         
     def crear_menu_superior(self):
-        """Crea la barra superior con opciones"""
-        menu_frame = tk.Frame(self.root, bg="#1e1e1e")
-        menu_frame.pack(fill=tk.X, padx=10, pady=(10, 0))
+        """Crea la barra de menú superior"""
+        menu_bar = tk.Menu(self.root)
+        self.root.config(menu=menu_bar)
         
-        # Botón Historial
-        btn_hist = tk.Button(
-            menu_frame, 
-            text="📜 Historial", 
-            command=self.mostrar_historial,
-            bg="#2d2d2d", fg="#ffffff", bd=0, padx=10, cursor="hand2"
-        )
-        btn_hist.pack(side=tk.LEFT)
+        # Menú Modo
+        modo_menu = tk.Menu(menu_bar, tearoff=0)
+        menu_bar.add_cascade(label="Modo", menu=modo_menu)
+        modo_menu.add_command(label="Calculadora Científica", command=lambda: None)  # Placeholder
+        modo_menu.add_separator()
+        modo_menu.add_command(label="Salir", command=self.root.quit)
         
-        # Botón Tema
-        btn_tema = tk.Button(
-            menu_frame, 
-            text="🌙/☀️", 
-            command=self.toggle_tema,
-            bg="#2d2d2d", fg="#ffffff", bd=0, padx=10, cursor="hand2"
+        # Menú Ver
+        ver_menu = tk.Menu(menu_bar, tearoff=0)
+        menu_bar.add_cascade(label="Ver", menu=ver_menu)
+        ver_menu.add_command(label="Historial", command=self.mostrar_historial)
+        ver_menu.add_separator()
+        ver_menu.add_command(label="Cambiar Tema (Claro/Oscuro)", command=self.toggle_tema)
+        
+        # Menú Ayuda
+        ayuda_menu = tk.Menu(menu_bar, tearoff=0)
+        menu_bar.add_cascade(label="Ayuda", menu=ayuda_menu)
+        ayuda_menu.add_command(label="Acerca de", command=self.mostrar_acerca_de)
+
+    def mostrar_acerca_de(self):
+        """Muestra información sobre la aplicación"""
+        messagebox.showinfo(
+            "Acerca de",
+            "Calculadora Científica Profesional\n"
+            "Versión 2.0\n\n"
+            "Desarrollada con Python y Tkinter\n"
+            "© 2026 Tesis Project"
         )
-        btn_tema.pack(side=tk.RIGHT)
         
     def configurar_atajos(self):
         """Configura los atajos de teclado"""
