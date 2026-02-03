@@ -203,6 +203,9 @@ class CalculadoraGUI:
         
     def crear_frame_principal(self):
         """Crea el frame principal que contendrá los botones"""
+        # Panel de programador (visible siempre o togglable)
+        self.crear_panel_programador(self.root)
+        
         # Container principal
         container = tk.Frame(self.root, bg="#1e1e1e")
         container.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
@@ -345,6 +348,53 @@ class CalculadoraGUI:
             self.frame_botones.rowconfigure(i, weight=1)
         
         return boton
+    
+    def crear_panel_programador(self, parent):
+        """Crea el panel de información para programadores"""
+        frame_prog = tk.Frame(parent, bg="#101010", pady=5)
+        frame_prog.pack(fill=tk.X, padx=10, pady=(0, 10))
+        
+        # Grid para bases
+        for i in range(3):
+            frame_prog.columnconfigure(i, weight=1)
+            
+        self.lbl_hex = tk.Label(frame_prog, text="HEX: 0", font=("Consolas", 10), bg="#101010", fg="#4cd964", anchor="w")
+        self.lbl_hex.grid(row=0, column=0, sticky="w", padx=5)
+        
+        self.lbl_dec = tk.Label(frame_prog, text="DEC: 0", font=("Consolas", 10), bg="#101010", fg="#4cd964", anchor="w")
+        self.lbl_dec.grid(row=0, column=1, sticky="w", padx=5)
+        
+        self.lbl_oct = tk.Label(frame_prog, text="OCT: 0", font=("Consolas", 10), bg="#101010", fg="#4cd964", anchor="w")
+        self.lbl_oct.grid(row=0, column=2, sticky="w", padx=5)
+        
+        self.lbl_bin = tk.Label(frame_prog, text="BIN: 0", font=("Consolas", 10), bg="#101010", fg="#4cd964", anchor="w")
+        self.lbl_bin.grid(row=1, column=0, columnspan=3, sticky="w", padx=5)
+        
+        # Vincular actualización
+        self.actualizar_bases()
+        
+    def actualizar_bases(self):
+        """Actualiza las etiquetas de bases numéricas"""
+        try:
+            # Obtener valor actual
+            val_str = self.display.get()
+            if not val_str or val_str in ["Error", "inf", "nan"]:
+                val = 0
+            else:
+                val = int(float(val_str))
+                
+            self.lbl_hex.config(text=f"HEX: {hex(val)[2:].upper()}")
+            self.lbl_dec.config(text=f"DEC: {val}")
+            self.lbl_oct.config(text=f"OCT: {oct(val)[2:]}")
+            self.lbl_bin.config(text=f"BIN: {bin(val)[2:]}")
+        except:
+            self.lbl_hex.config(text="HEX: -")
+            self.lbl_dec.config(text="DEC: -")
+            self.lbl_oct.config(text="OCT: -")
+            self.lbl_bin.config(text="BIN: -")
+            
+        # Programar siguiente actualización
+        self.root.after(200, self.actualizar_bases)
     
     def crear_botones_numericos(self):
         """Crea la grilla completa de botones"""
