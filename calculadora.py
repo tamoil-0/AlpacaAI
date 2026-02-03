@@ -280,6 +280,34 @@ class Calculator:
             return celsius + 273.15
         else:
             return celsius
+            
+    def resolver_ecuacion_cuadratica(self, a, b, c):
+        """Resuelve ecuación ax^2 + bx + c = 0 usando fórmula general"""
+        self.historial.append(f"Ec: {a}x² + {b}x + {c} = 0")
+        
+        if a == 0:
+            if b == 0:
+                if c == 0:
+                    return "Infinitas soluciones"
+                else:
+                    return "Sin solución"
+            else:
+                x = -c / b
+                return f"x = {x}"
+        
+        discriminante = b**2 - 4*a*c
+        
+        if discriminante > 0:
+            x1 = (-b + math.sqrt(discriminante)) / (2*a)
+            x2 = (-b - math.sqrt(discriminante)) / (2*a)
+            return f"x₁ = {x1:.4f}\nx₂ = {x2:.4f}"
+        elif discriminante == 0:
+            x = -b / (2*a)
+            return f"x = {x:.4f}"
+        else:
+            parte_real = -b / (2*a)
+            parte_imag = math.sqrt(abs(discriminante)) / (2*a)
+            return f"x₁ = {parte_real:.4f} + {parte_imag:.4f}i\nx₂ = {parte_real:.4f} - {parte_imag:.4f}i"
 
 
 # Función principal de demostración

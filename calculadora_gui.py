@@ -67,6 +67,7 @@ class CalculadoraGUI:
         modo_menu.add_command(label="Calculadora Científica", command=lambda: None)
         modo_menu.add_command(label="Estadística", command=self.abrir_estadistica)
         modo_menu.add_command(label="Conversor de Unidades", command=self.abrir_conversor)
+        modo_menu.add_command(label="Resolver Ecuaciones", command=self.abrir_ecuaciones)
         modo_menu.add_separator()
         modo_menu.add_command(label="Salir", command=self.root.quit)
         
@@ -875,6 +876,49 @@ class CalculadoraGUI:
             ventana, text="Convertir", command=convertir,
             bg=self.colores["btn_op"], fg="#ffffff", font=("Segoe UI", 11, "bold"), bd=0, pady=10
         ).pack(fill=tk.X, padx=20, pady=20)
+
+    def abrir_ecuaciones(self):
+        """Abre el solucionador de ecuaciones cuadráticas"""
+        ventana = tk.Toplevel(self.root)
+        ventana.title("Ecuación Cuadrática")
+        ventana.geometry("400x450")
+        ventana.configure(bg=self.colores["bg"])
+        
+        titulo = tk.Label(ventana, text="ax² + bx + c = 0", font=("Segoe UI", 16, "bold"), bg=self.colores["bg"], fg=self.colores["btn_eq"])
+        titulo.pack(pady=20)
+        
+        frame_input = tk.Frame(ventana, bg=self.colores["bg"])
+        frame_input.pack(pady=10)
+        
+        # Entradas a, b, c
+        def crear_entrada(label, row):
+            tk.Label(frame_input, text=f"{label} =", font=("Segoe UI", 12, "bold"), bg=self.colores["bg"], fg=self.colores["text"]).grid(row=row, column=0, padx=10, pady=5)
+            ent = tk.Entry(frame_input, font=("Segoe UI", 12), width=10, bg="#2d2d2d", fg="#ffffff", justify="center")
+            ent.grid(row=row, column=1, padx=10, pady=5)
+            return ent
+            
+        ent_a = crear_entrada("a", 0)
+        ent_b = crear_entrada("b", 1)
+        ent_c = crear_entrada("c", 2)
+        
+        res_lbl = tk.Label(ventana, text="", font=("Consolas", 12), bg=self.colores["bg"], fg=self.colores["text"], justify="center")
+        res_lbl.pack(pady=20)
+        
+        def resolver():
+            try:
+                a = float(ent_a.get())
+                b = float(ent_b.get())
+                c = float(ent_c.get())
+                
+                resultado = self.calc.resolver_ecuacion_cuadratica(a, b, c)
+                res_lbl.config(text=resultado)
+            except ValueError:
+                messagebox.showerror("Error", "Ingrese valores numéricos válidos")
+                
+        tk.Button(
+            ventana, text="Resolver", command=resolver,
+            bg=self.colores["btn_sci"], fg="#ffffff", font=("Segoe UI", 11, "bold"), bd=0, pady=10, cursor="hand2"
+        ).pack(fill=tk.X, padx=40, pady=20)
 
 
 def main():
