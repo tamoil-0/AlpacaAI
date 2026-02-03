@@ -66,6 +66,7 @@ class CalculadoraGUI:
         menu_bar.add_cascade(label="Modo", menu=modo_menu)
         modo_menu.add_command(label="Calculadora Científica", command=lambda: None)
         modo_menu.add_command(label="Estadística", command=self.abrir_estadistica)
+        modo_menu.add_command(label="Conversor de Unidades", command=self.abrir_conversor)
         modo_menu.add_separator()
         modo_menu.add_command(label="Salir", command=self.root.quit)
         
@@ -741,6 +742,89 @@ class CalculadoraGUI:
             font=("Segoe UI", 11, "bold"),
             bd=0, pady=10, cursor="hand2"
         ).pack(fill=tk.X, padx=20, pady=(0, 20))
+
+    def abrir_conversor(self):
+        """Abre el módulo de conversión de unidades"""
+        ventana = tk.Toplevel(self.root)
+        ventana.title("Conversor de Unidades")
+        ventana.geometry("400x500")
+        ventana.configure(bg=self.colores["bg"])
+        
+        # Selección de tipo de conversión
+        tipo_var = tk.StringVar(value="Longitud")
+        
+        frame_tipo = tk.Frame(ventana, bg=self.colores["bg"])
+        frame_tipo.pack(fill=tk.X, padx=20, pady=10)
+        
+        tk.Label(frame_tipo, text="Tipo:", bg=self.colores["bg"], fg=self.colores["text"]).pack(side=tk.LEFT)
+        tipo_combo = ttk.Combobox(frame_tipo, textvariable=tipo_var, values=["Longitud", "Masa", "Temperatura"], state="readonly")
+        tipo_combo.pack(side=tk.LEFT, padx=10, fill=tk.X, expand=True)
+        
+        # Unidades disponibles
+        unidades = {
+            "Longitud": ["m", "km", "cm", "mm", "ft", "in", "mi"],
+            "Masa": ["kg", "g", "mg", "lb", "oz"],
+            "Temperatura": ["C", "F", "K"]
+        }
+        
+        # Frame de conversión
+        frame_conv = tk.Frame(ventana, bg=self.colores["bg"])
+        frame_conv.pack(fill=tk.BOTH, expand=True, padx=20, pady=10)
+        
+        # Origen
+        tk.Label(frame_conv, text="De:", bg=self.colores["bg"], fg=self.colores["text"]).pack(anchor="w")
+        origen_var = tk.StringVar(value="m")
+        origen_combo = ttk.Combobox(frame_conv, textvariable=origen_var, values=unidades["Longitud"], state="readonly")
+        origen_combo.pack(fill=tk.X, pady=(0, 10))
+        
+        entrada = tk.Entry(frame_conv, font=("Segoe UI", 12), bg="#2d2d2d", fg="#ffffff")
+        entrada.pack(fill=tk.X, pady=(0, 20))
+        
+        # Destino
+        tk.Label(frame_conv, text="A:", bg=self.colores["bg"], fg=self.colores["text"]).pack(anchor="w")
+        destino_var = tk.StringVar(value="km")
+        destino_combo = ttk.Combobox(frame_conv, textvariable=destino_var, values=unidades["Longitud"], state="readonly")
+        destino_combo.pack(fill=tk.X, pady=(0, 10))
+        
+        resultado_lbl = tk.Label(frame_conv, text="---", font=("Segoe UI", 16, "bold"), bg=self.colores["bg"], fg=self.colores["btn_eq"])
+        resultado_lbl.pack(pady=20)
+        
+        # Actualizar unidades al cambiar tipo
+        def actualizar_unidades(event):
+            tipo = tipo_var.get()
+            vals = unidades[tipo]
+            origen_combo.config(values=vals)
+            destino_combo.config(values=vals)
+            origen_combo.current(0)
+            destino_combo.current(1)
+            
+        tipo_combo.bind("<<ComboboxSelected>>", actualizar_unidades)
+        
+        def convertir():
+            try:
+                val = float(entrada.get())
+                tipo = tipo_var.get()
+                orig = origen_var.get()
+                dest = destino_var.get()
+                
+                if tipo == "Longitud":
+                    res = self.calc.convertir_longitud(val, orig, dest)
+                elif tipo == "Masa":
+                    res = self.calc.convertir_masa(val, orig, dest)
+                elif tipo == "Temperatura":
+                    res = self.calc.convertir_temperatura(val, orig, dest)
+                    
+                resultado_lbl.config(text=f"{res:.4f} {dest}")
+                
+            except ValueError:
+                resultado_lbl.config(text="Error")
+            except Exception as e:
+                messagebox.showerror("Error", str(e))
+                
+        tk.Button(
+            ventana, text="Convertir", command=convertir,
+            bg=self.colores["btn_op"], fg="#ffffff", font=("Segoe UI", 11, "bold"), bd=0, pady=10
+        ).pack(fill=tk.X, padx=20, pady=20)
 
 
 def main():

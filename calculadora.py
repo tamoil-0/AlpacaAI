@@ -233,6 +233,53 @@ class Calculator:
         resultado = math.sqrt(varianza)
         self.historial.append(f"Desv. Est. de {numeros} = {resultado}")
         return resultado
+    
+    def convertir_longitud(self, valor, unidad_origen, unidad_destino):
+        """Convierte unidades de longitud (m, km, cm, mm, ft, in, mi)"""
+        # Factores a metros
+        factores = {
+            "m": 1, "km": 1000, "cm": 0.01, "mm": 0.001,
+            "ft": 0.3048, "in": 0.0254, "mi": 1609.34
+        }
+        if unidad_origen not in factores or unidad_destino not in factores:
+            raise ValueError("Unidad de longitud no soportada")
+            
+        valor_metros = valor * factores[unidad_origen]
+        return valor_metros / factores[unidad_destino]
+        
+    def convertir_masa(self, valor, unidad_origen, unidad_destino):
+        """Convierte unidades de masa (kg, g, mg, lb, oz)"""
+        # Factores a kilogramos
+        factores = {
+            "kg": 1, "g": 0.001, "mg": 0.000001,
+            "lb": 0.453592, "oz": 0.0283495
+        }
+        if unidad_origen not in factores or unidad_destino not in factores:
+            raise ValueError("Unidad de masa no soportada")
+            
+        valor_kg = valor * factores[unidad_origen]
+        return valor_kg / factores[unidad_destino]
+        
+    def convertir_temperatura(self, valor, unidad_origen, unidad_destino):
+        """Convierte unidades de temperatura (C, F, K)"""
+        if unidad_origen == unidad_destino:
+            return valor
+            
+        # Convertir a Celsius primero
+        if unidad_origen == "F":
+            celsius = (valor - 32) * 5/9
+        elif unidad_origen == "K":
+            celsius = valor - 273.15
+        else:
+            celsius = valor
+            
+        # Convertir de Celsius a destino
+        if unidad_destino == "F":
+            return (celsius * 9/5) + 32
+        elif unidad_destino == "K":
+            return celsius + 273.15
+        else:
+            return celsius
 
 
 # Función principal de demostración
