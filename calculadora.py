@@ -157,6 +157,12 @@ class Calculator:
         self.historial.append(f"{grados}° = {resultado} rad")
         return resultado
     
+    def radianes_a_grados(self, radianes):
+        """Convierte radianes a grados"""
+        resultado = math.degrees(radianes)
+        self.historial.append(f"{radianes} rad = {resultado}°")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
