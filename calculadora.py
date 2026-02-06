@@ -163,6 +163,12 @@ class Calculator:
         self.historial.append(f"{radianes} rad = {resultado}°")
         return resultado
     
+    def redondear(self, numero, decimales=0):
+        """Redondea un número a un número específico de decimales"""
+        resultado = round(numero, decimales)
+        self.historial.append(f"round({numero}, {decimales}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
