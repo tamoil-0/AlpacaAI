@@ -169,6 +169,17 @@ class Calculator:
         self.historial.append(f"round({numero}, {decimales}) = {resultado}")
         return resultado
     
+    def signo(self, numero):
+        """Devuelve el signo de un número: -1 si negativo, 0 si cero, 1 si positivo"""
+        if numero > 0:
+            resultado = 1
+        elif numero < 0:
+            resultado = -1
+        else:
+            resultado = 0
+        self.historial.append(f"sign({numero}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
