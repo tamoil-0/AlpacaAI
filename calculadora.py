@@ -206,6 +206,12 @@ class Calculator:
         self.historial.append(f"{celsius}°C = {resultado}°F")
         return resultado
     
+    def fahrenheit_a_celsius(self, fahrenheit):
+        """Convierte grados Fahrenheit a Celsius"""
+        resultado = (fahrenheit - 32) * 5/9
+        self.historial.append(f"{fahrenheit}°F = {resultado}°C")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
