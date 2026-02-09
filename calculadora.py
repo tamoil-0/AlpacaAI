@@ -200,6 +200,12 @@ class Calculator:
         self.historial.append(f"avg({', '.join(map(str, numeros))}) = {resultado}")
         return resultado
     
+    def celsius_a_fahrenheit(self, celsius):
+        """Convierte grados Celsius a Fahrenheit"""
+        resultado = (celsius * 9/5) + 32
+        self.historial.append(f"{celsius}°C = {resultado}°F")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
