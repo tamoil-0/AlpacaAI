@@ -180,6 +180,12 @@ class Calculator:
         self.historial.append(f"sign({numero}) = {resultado}")
         return resultado
     
+    def minimo(self, a, b):
+        """Devuelve el mínimo de dos números"""
+        resultado = min(a, b)
+        self.historial.append(f"min({a}, {b}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
