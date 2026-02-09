@@ -192,6 +192,14 @@ class Calculator:
         self.historial.append(f"max({a}, {b}) = {resultado}")
         return resultado
     
+    def promedio(self, *numeros):
+        """Calcula el promedio de una lista de números"""
+        if not numeros:
+            raise ValueError("Se requieren al menos un número para calcular el promedio")
+        resultado = sum(numeros) / len(numeros)
+        self.historial.append(f"avg({', '.join(map(str, numeros))}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
