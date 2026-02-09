@@ -186,6 +186,12 @@ class Calculator:
         self.historial.append(f"min({a}, {b}) = {resultado}")
         return resultado
     
+    def maximo(self, a, b):
+        """Devuelve el máximo de dos números"""
+        resultado = max(a, b)
+        self.historial.append(f"max({a}, {b}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
