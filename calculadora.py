@@ -228,6 +228,15 @@ class Calculator:
         self.historial.append(f"P({n}, {k}) = {resultado}")
         return resultado
     
+    def desviacion_estandar(self, *numeros):
+        """Calcula la desviación estándar de una lista de números"""
+        if len(numeros) < 2:
+            raise ValueError("Se requieren al menos dos números para calcular la desviación estándar")
+        import statistics
+        resultado = statistics.stdev(numeros)
+        self.historial.append(f"stdev({', '.join(map(str, numeros))}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
