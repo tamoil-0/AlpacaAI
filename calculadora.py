@@ -237,6 +237,15 @@ class Calculator:
         self.historial.append(f"stdev({', '.join(map(str, numeros))}) = {resultado}")
         return resultado
     
+    def varianza(self, *numeros):
+        """Calcula la varianza de una lista de números"""
+        if len(numeros) < 2:
+            raise ValueError("Se requieren al menos dos números para calcular la varianza")
+        import statistics
+        resultado = statistics.variance(numeros)
+        self.historial.append(f"var({', '.join(map(str, numeros))}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
