@@ -246,6 +246,14 @@ class Calculator:
         self.historial.append(f"var({', '.join(map(str, numeros))}) = {resultado}")
         return resultado
     
+    def area_circulo(self, radio):
+        """Calcula el área de un círculo dado su radio"""
+        if radio < 0:
+            raise ValueError("El radio no puede ser negativo")
+        resultado = math.pi * radio ** 2
+        self.historial.append(f"area_circle(r={radio}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
