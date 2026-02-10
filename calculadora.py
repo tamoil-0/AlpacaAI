@@ -212,6 +212,14 @@ class Calculator:
         self.historial.append(f"{fahrenheit}°F = {resultado}°C")
         return resultado
     
+    def combinaciones(self, n, k):
+        """Calcula el número de combinaciones de n elementos tomados de k en k"""
+        if k > n or k < 0 or n < 0:
+            raise ValueError("Valores inválidos para combinaciones")
+        resultado = math.comb(n, k)
+        self.historial.append(f"C({n}, {k}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
