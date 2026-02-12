@@ -263,6 +263,14 @@ class Calculator:
         self.historial.append(f"median({', '.join(map(str, numeros))}) = {resultado}")
         return resultado
     
+    def hipotenusa(self, a, b):
+        """Calcula la hipotenusa de un triángulo rectángulo dados los catetos"""
+        if a < 0 or b < 0:
+            raise ValueError("Los catetos no pueden ser negativos")
+        resultado = math.sqrt(a**2 + b**2)
+        self.historial.append(f"hypotenuse({a}, {b}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
