@@ -254,6 +254,15 @@ class Calculator:
         self.historial.append(f"area_circle(r={radio}) = {resultado}")
         return resultado
     
+    def mediana(self, *numeros):
+        """Calcula la mediana de una lista de números"""
+        if not numeros:
+            raise ValueError("Se requieren números para calcular la mediana")
+        import statistics
+        resultado = statistics.median(numeros)
+        self.historial.append(f"median({', '.join(map(str, numeros))}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
