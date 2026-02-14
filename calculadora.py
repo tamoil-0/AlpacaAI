@@ -279,6 +279,14 @@ class Calculator:
         self.historial.append(f"volume_sphere(r={radio}) = {resultado}")
         return resultado
     
+    def area_triangulo(self, base, altura):
+        """Calcula el área de un triángulo dada su base y altura"""
+        if base < 0 or altura < 0:
+            raise ValueError("La base y la altura no pueden ser negativas")
+        resultado = (base * altura) / 2
+        self.historial.append(f"area_triangle(b={base}, h={altura}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
