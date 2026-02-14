@@ -287,6 +287,14 @@ class Calculator:
         self.historial.append(f"area_triangle(b={base}, h={altura}) = {resultado}")
         return resultado
     
+    def metros_a_pies(self, metros):
+        """Convierte metros a pies"""
+        if metros < 0:
+            raise ValueError("La distancia no puede ser negativa")
+        resultado = metros * 3.28084
+        self.historial.append(f"{metros} m = {resultado} ft")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
