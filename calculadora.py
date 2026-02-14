@@ -271,6 +271,14 @@ class Calculator:
         self.historial.append(f"hypotenuse({a}, {b}) = {resultado}")
         return resultado
     
+    def volumen_esfera(self, radio):
+        """Calcula el volumen de una esfera dado su radio"""
+        if radio < 0:
+            raise ValueError("El radio no puede ser negativo")
+        resultado = (4/3) * math.pi * radio ** 3
+        self.historial.append(f"volume_sphere(r={radio}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
