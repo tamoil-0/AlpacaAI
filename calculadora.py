@@ -295,6 +295,14 @@ class Calculator:
         self.historial.append(f"{metros} m = {resultado} ft")
         return resultado
     
+    def pies_a_metros(self, pies):
+        """Convierte pies a metros"""
+        if pies < 0:
+            raise ValueError("La distancia no puede ser negativa")
+        resultado = pies / 3.28084
+        self.historial.append(f"{pies} ft = {resultado} m")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
