@@ -367,6 +367,16 @@ class Calculator:
         self.historial.append(f"surface_area_sphere(r={radio}) = {resultado}")
         return resultado
     
+    def perimetro_triangulo(self, a, b, c):
+        """Calcula el perímetro de un triángulo dados sus tres lados"""
+        if a <= 0 or b <= 0 or c <= 0:
+            raise ValueError("Los lados deben ser positivos")
+        if a + b <= c or a + c <= b or b + c <= a:
+            raise ValueError("Los lados no forman un triángulo válido")
+        resultado = a + b + c
+        self.historial.append(f"perimeter_triangle(a={a}, b={b}, c={c}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
