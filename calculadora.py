@@ -391,6 +391,14 @@ class Calculator:
         self.historial.append(f"distance(({x1},{y1}), ({x2},{y2})) = {resultado}")
         return resultado
     
+    def pendiente_recta(self, x1, y1, x2, y2):
+        """Calcula la pendiente de una recta dados dos puntos"""
+        if x1 == x2:
+            raise ValueError("La pendiente es indefinida (línea vertical)")
+        resultado = (y2 - y1) / (x2 - x1)
+        self.historial.append(f"slope(({x1},{y1}), ({x2},{y2})) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
