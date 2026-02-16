@@ -434,6 +434,14 @@ class Calculator:
         self.historial.append(f"simple_interest(P={principal}, r={tasa}, t={tiempo}) = {resultado}")
         return resultado
     
+    def interes_compuesto(self, principal, tasa, tiempo, n=1):
+        """Calcula el monto total con interés compuesto: A = P(1 + r/n)^(nt)"""
+        if principal < 0 or tasa < 0 or tiempo < 0 or n <= 0:
+            raise ValueError("Los valores deben ser positivos")
+        resultado = principal * (1 + tasa / n) ** (n * tiempo)
+        self.historial.append(f"compound_interest(P={principal}, r={tasa}, t={tiempo}, n={n}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
