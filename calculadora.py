@@ -426,6 +426,14 @@ class Calculator:
         self.historial.append(f"geometric_sum(a1={primer}, r={razon}, n={n}) = {resultado}")
         return resultado
     
+    def interes_simple(self, principal, tasa, tiempo):
+        """Calcula el monto total con interés simple: A = P(1 + rt)"""
+        if principal < 0 or tasa < 0 or tiempo < 0:
+            raise ValueError("Los valores no pueden ser negativos")
+        resultado = principal * (1 + tasa * tiempo)
+        self.historial.append(f"simple_interest(P={principal}, r={tasa}, t={tiempo}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
