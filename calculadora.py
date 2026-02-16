@@ -407,6 +407,14 @@ class Calculator:
         self.historial.append(f"solve({a}x + {b} = 0) => x = {resultado}")
         return resultado
     
+    def suma_aritmetica(self, primer, ultimo, n):
+        """Calcula la suma de una serie aritmética dados el primer término, último y número de términos"""
+        if n <= 0:
+            raise ValueError("El número de términos debe ser positivo")
+        resultado = n * (primer + ultimo) / 2
+        self.historial.append(f"arithmetic_sum(a1={primer}, an={ultimo}, n={n}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
