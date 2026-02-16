@@ -327,6 +327,14 @@ class Calculator:
         self.historial.append(f"{kg} kg = {resultado} lb")
         return resultado
     
+    def libras_a_kilogramos(self, lb):
+        """Convierte libras a kilogramos"""
+        if lb < 0:
+            raise ValueError("El peso no puede ser negativo")
+        resultado = lb / 2.20462
+        self.historial.append(f"{lb} lb = {resultado} kg")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
