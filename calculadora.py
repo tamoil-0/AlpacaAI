@@ -415,6 +415,17 @@ class Calculator:
         self.historial.append(f"arithmetic_sum(a1={primer}, an={ultimo}, n={n}) = {resultado}")
         return resultado
     
+    def suma_geometrica(self, primer, razon, n):
+        """Calcula la suma de una serie geométrica dados el primer término, razón y número de términos"""
+        if n <= 0:
+            raise ValueError("El número de términos debe ser positivo")
+        if razon == 1:
+            resultado = primer * n
+        else:
+            resultado = primer * (1 - razon ** n) / (1 - razon)
+        self.historial.append(f"geometric_sum(a1={primer}, r={razon}, n={n}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
