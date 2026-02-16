@@ -399,6 +399,14 @@ class Calculator:
         self.historial.append(f"slope(({x1},{y1}), ({x2},{y2})) = {resultado}")
         return resultado
     
+    def ecuacion_lineal(self, a, b):
+        """Resuelve la ecuación lineal ax + b = 0"""
+        if a == 0:
+            raise ValueError("El coeficiente 'a' no puede ser cero")
+        resultado = -b / a
+        self.historial.append(f"solve({a}x + {b} = 0) => x = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
