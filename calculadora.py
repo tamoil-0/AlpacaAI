@@ -359,6 +359,14 @@ class Calculator:
         self.historial.append(f"volume_cube(s={lado}) = {resultado}")
         return resultado
     
+    def area_esfera(self, radio):
+        """Calcula el área superficial de una esfera dado su radio"""
+        if radio < 0:
+            raise ValueError("El radio no puede ser negativo")
+        resultado = 4 * math.pi * radio ** 2
+        self.historial.append(f"surface_area_sphere(r={radio}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
