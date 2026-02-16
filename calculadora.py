@@ -385,6 +385,12 @@ class Calculator:
         self.historial.append(f"volume_cylinder(r={radio}, h={altura}) = {resultado}")
         return resultado
     
+    def distancia_entre_puntos(self, x1, y1, x2, y2):
+        """Calcula la distancia entre dos puntos en el plano cartesiano"""
+        resultado = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+        self.historial.append(f"distance(({x1},{y1}), ({x2},{y2})) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
