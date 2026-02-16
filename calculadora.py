@@ -319,6 +319,14 @@ class Calculator:
         self.historial.append(f"perimeter_circle(r={radio}) = {resultado}")
         return resultado
     
+    def kilogramos_a_libras(self, kg):
+        """Convierte kilogramos a libras"""
+        if kg < 0:
+            raise ValueError("El peso no puede ser negativo")
+        resultado = kg * 2.20462
+        self.historial.append(f"{kg} kg = {resultado} lb")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
