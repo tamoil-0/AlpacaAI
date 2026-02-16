@@ -343,6 +343,14 @@ class Calculator:
         self.historial.append(f"area_rectangle(l={largo}, w={ancho}) = {resultado}")
         return resultado
     
+    def perimetro_rectangulo(self, largo, ancho):
+        """Calcula el perímetro de un rectángulo dado su largo y ancho"""
+        if largo < 0 or ancho < 0:
+            raise ValueError("El largo y el ancho no pueden ser negativos")
+        resultado = 2 * (largo + ancho)
+        self.historial.append(f"perimeter_rectangle(l={largo}, w={ancho}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
