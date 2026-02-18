@@ -484,6 +484,14 @@ class Calculator:
         self.historial.append(f"average_speed(d={distancia}, t={tiempo}) = {resultado}")
         return resultado
     
+    def aceleracion(self, velocidad_final, velocidad_inicial, tiempo):
+        """Calcula la aceleración: a = (vf - vi)/t"""
+        if tiempo <= 0:
+            raise ValueError("El tiempo debe ser positivo")
+        resultado = (velocidad_final - velocidad_inicial) / tiempo
+        self.historial.append(f"acceleration(vf={velocidad_final}, vi={velocidad_inicial}, t={tiempo}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
