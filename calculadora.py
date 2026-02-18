@@ -524,6 +524,23 @@ class Calculator:
         self.historial.append(f"{n}!! = {resultado}")
         return resultado
     
+    def es_primo(self, n):
+        """Verifica si un número es primo"""
+        if n < 2:
+            resultado = False
+        elif n == 2:
+            resultado = True
+        elif n % 2 == 0:
+            resultado = False
+        else:
+            resultado = True
+            for i in range(3, int(math.sqrt(n)) + 1, 2):
+                if n % i == 0:
+                    resultado = False
+                    break
+        self.historial.append(f"is_prime({n}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
