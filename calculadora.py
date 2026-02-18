@@ -512,6 +512,18 @@ class Calculator:
         self.historial.append(f"range({', '.join(map(str, numeros))}) = {resultado}")
         return resultado
     
+    def factorial_doble(self, n):
+        """Calcula el factorial doble: n!! = n(n-2)(n-4)..."""
+        if n < 0:
+            raise ValueError("No se puede calcular factorial doble de número negativo")
+        if n == 0 or n == 1:
+            return 1
+        resultado = 1
+        for i in range(n, 0, -2):
+            resultado *= i
+        self.historial.append(f"{n}!! = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
