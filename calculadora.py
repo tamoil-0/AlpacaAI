@@ -492,6 +492,18 @@ class Calculator:
         self.historial.append(f"acceleration(vf={velocidad_final}, vi={velocidad_inicial}, t={tiempo}) = {resultado}")
         return resultado
     
+    def modo(self, *numeros):
+        """Calcula el modo (valor más frecuente) de una lista de números"""
+        if not numeros:
+            raise ValueError("Se requieren números para calcular el modo")
+        import statistics
+        try:
+            resultado = statistics.mode(numeros)
+            self.historial.append(f"mode({', '.join(map(str, numeros))}) = {resultado}")
+            return resultado
+        except statistics.StatisticsError:
+            raise ValueError("No hay un modo único")
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
