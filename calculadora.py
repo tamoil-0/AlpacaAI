@@ -466,6 +466,14 @@ class Calculator:
         self.historial.append(f"{litros} L = {resultado} gal")
         return resultado
     
+    def galones_a_litros(self, galones):
+        """Convierte galones estadounidenses a litros"""
+        if galones < 0:
+            raise ValueError("Los galones no pueden ser negativos")
+        resultado = galones / 0.264172
+        self.historial.append(f"{galones} gal = {resultado} L")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
