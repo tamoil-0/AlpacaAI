@@ -458,6 +458,14 @@ class Calculator:
         self.historial.append(f"volume_cone(r={radio}, h={altura}) = {resultado}")
         return resultado
     
+    def litros_a_galones(self, litros):
+        """Convierte litros a galones estadounidenses"""
+        if litros < 0:
+            raise ValueError("Los litros no pueden ser negativos")
+        resultado = litros * 0.264172
+        self.historial.append(f"{litros} L = {resultado} gal")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
