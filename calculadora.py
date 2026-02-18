@@ -442,6 +442,22 @@ class Calculator:
         self.historial.append(f"compound_interest(P={principal}, r={tasa}, t={tiempo}, n={n}) = {resultado}")
         return resultado
     
+    def area_trapecio(self, base_mayor, base_menor, altura):
+        """Calcula el área de un trapecio dados las bases y la altura"""
+        if base_mayor < 0 or base_menor < 0 or altura < 0:
+            raise ValueError("Las bases y la altura no pueden ser negativas")
+        resultado = ((base_mayor + base_menor) / 2) * altura
+        self.historial.append(f"area_trapezoid(a={base_mayor}, b={base_menor}, h={altura}) = {resultado}")
+        return resultado
+    
+    def volumen_cono(self, radio, altura):
+        """Calcula el volumen de un cono dado su radio y altura"""
+        if radio < 0 or altura < 0:
+            raise ValueError("El radio y la altura no pueden ser negativos")
+        resultado = (1/3) * math.pi * radio ** 2 * altura
+        self.historial.append(f"volume_cone(r={radio}, h={altura}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
