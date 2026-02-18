@@ -474,6 +474,16 @@ class Calculator:
         self.historial.append(f"{galones} gal = {resultado} L")
         return resultado
     
+    def velocidad_media(self, distancia, tiempo):
+        """Calcula la velocidad media: v = d/t"""
+        if tiempo <= 0:
+            raise ValueError("El tiempo debe ser positivo")
+        if distancia < 0:
+            raise ValueError("La distancia no puede ser negativa")
+        resultado = distancia / tiempo
+        self.historial.append(f"average_speed(d={distancia}, t={tiempo}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
