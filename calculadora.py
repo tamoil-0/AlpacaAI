@@ -504,6 +504,14 @@ class Calculator:
         except statistics.StatisticsError:
             raise ValueError("No hay un modo único")
     
+    def rango(self, *numeros):
+        """Calcula el rango (máximo - mínimo) de una lista de números"""
+        if not numeros:
+            raise ValueError("Se requieren números para calcular el rango")
+        resultado = max(numeros) - min(numeros)
+        self.historial.append(f"range({', '.join(map(str, numeros))}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
