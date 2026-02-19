@@ -597,6 +597,18 @@ class Calculator:
         self.historial.append(f"kinetic_energy(m={masa}, v={velocidad}) = {resultado}")
         return resultado
     
+    def cuartil(self, *numeros):
+        """Calcula el cuartil (Q1, Q2, Q3) de una lista de números"""
+        if len(numeros) < 4:
+            raise ValueError("Se requieren al menos 4 números para calcular cuartiles")
+        import statistics
+        q1 = statistics.quantiles(numeros, n=4)[0]
+        q2 = statistics.quantiles(numeros, n=4)[1]
+        q3 = statistics.quantiles(numeros, n=4)[2]
+        resultado = (q1, q2, q3)
+        self.historial.append(f"quartiles({', '.join(map(str, numeros))}) = Q1={q1}, Q2={q2}, Q3={q3}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
