@@ -634,6 +634,14 @@ class Calculator:
         self.historial.append(f"fibonacci({n}) = {b}")
         return b
     
+    def area_elipse(self, a, b):
+        """Calcula el área de una elipse dados sus semiejes"""
+        if a < 0 or b < 0:
+            raise ValueError("Los semiejes no pueden ser negativos")
+        resultado = math.pi * a * b
+        self.historial.append(f"area_ellipse(a={a}, b={b}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
