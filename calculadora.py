@@ -642,6 +642,12 @@ class Calculator:
         self.historial.append(f"area_ellipse(a={a}, b={b}) = {resultado}")
         return resultado
     
+    def seno_hiperbolico(self, x):
+        """Calcula el seno hiperbólico: sinh(x)"""
+        resultado = math.sinh(x)
+        self.historial.append(f"sinh({x}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
