@@ -684,6 +684,15 @@ class Calculator:
         self.historial.append(f"volume_prism(base_area={area_base}, h={altura}) = {resultado}")
         return resultado
     
+    def area_sector_circular(self, radio, angulo):
+        """Calcula el área de un sector circular dado el radio y el ángulo en grados"""
+        if radio < 0 or angulo < 0 or angulo > 360:
+            raise ValueError("El radio debe ser positivo y el ángulo entre 0 y 360 grados")
+        area_total = math.pi * radio ** 2
+        resultado = (angulo / 360) * area_total
+        self.historial.append(f"area_circular_sector(r={radio}, angle={angulo}°) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
