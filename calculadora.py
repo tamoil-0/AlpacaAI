@@ -648,6 +648,12 @@ class Calculator:
         self.historial.append(f"sinh({x}) = {resultado}")
         return resultado
     
+    def coseno_hiperbolico(self, x):
+        """Calcula el coseno hiperbólico: cosh(x)"""
+        resultado = math.cosh(x)
+        self.historial.append(f"cosh({x}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
