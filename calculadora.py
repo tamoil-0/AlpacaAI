@@ -589,6 +589,14 @@ class Calculator:
         self.historial.append(f"work(F={fuerza}, d={distancia}) = {resultado}")
         return resultado
     
+    def energia_cinetica(self, masa, velocidad):
+        """Calcula la energía cinética: E = 1/2 m v^2"""
+        if masa < 0 or velocidad < 0:
+            raise ValueError("La masa y la velocidad no pueden ser negativas")
+        resultado = 0.5 * masa * velocidad ** 2
+        self.historial.append(f"kinetic_energy(m={masa}, v={velocidad}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
