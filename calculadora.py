@@ -620,6 +620,20 @@ class Calculator:
         self.historial.append(f"percentile({percentil}, {', '.join(map(str, numeros))}) = {resultado}")
         return resultado
     
+    def numero_fibonacci(self, n):
+        """Calcula el n-ésimo número de Fibonacci"""
+        if n < 0:
+            raise ValueError("n no puede ser negativo")
+        if n == 0:
+            return 0
+        elif n == 1:
+            return 1
+        a, b = 0, 1
+        for _ in range(2, n + 1):
+            a, b = b, a + b
+        self.historial.append(f"fibonacci({n}) = {b}")
+        return b
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
