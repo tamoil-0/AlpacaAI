@@ -565,6 +565,14 @@ class Calculator:
         self.historial.append(f"{km} km = {resultado} mi")
         return resultado
     
+    def millas_a_kilometros(self, mi):
+        """Convierte millas a kilómetros"""
+        if mi < 0:
+            raise ValueError("La distancia no puede ser negativa")
+        resultado = mi / 0.621371
+        self.historial.append(f"{mi} mi = {resultado} km")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
