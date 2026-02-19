@@ -693,6 +693,15 @@ class Calculator:
         self.historial.append(f"area_circular_sector(r={radio}, angle={angulo}°) = {resultado}")
         return resultado
     
+    def longitud_arco(self, radio, angulo):
+        """Calcula la longitud de un arco dado el radio y el ángulo en grados"""
+        if radio < 0 or angulo < 0:
+            raise ValueError("El radio y el ángulo no pueden ser negativos")
+        angulo_radianes = math.radians(angulo)
+        resultado = radio * angulo_radianes
+        self.historial.append(f"arc_length(r={radio}, angle={angulo}°) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
