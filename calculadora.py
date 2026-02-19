@@ -654,6 +654,12 @@ class Calculator:
         self.historial.append(f"cosh({x}) = {resultado}")
         return resultado
     
+    def tangente_hiperbolica(self, x):
+        """Calcula la tangente hiperbólica: tanh(x)"""
+        resultado = math.tanh(x)
+        self.historial.append(f"tanh({x}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
