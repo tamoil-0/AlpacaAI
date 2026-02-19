@@ -541,6 +541,14 @@ class Calculator:
         self.historial.append(f"is_prime({n}) = {resultado}")
         return resultado
     
+    def area_paralelogramo(self, base, altura):
+        """Calcula el área de un paralelogramo dado su base y altura"""
+        if base < 0 or altura < 0:
+            raise ValueError("La base y la altura no pueden ser negativas")
+        resultado = base * altura
+        self.historial.append(f"area_parallelogram(b={base}, h={altura}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
