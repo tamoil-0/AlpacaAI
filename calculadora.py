@@ -676,6 +676,14 @@ class Calculator:
         self.historial.append(f"perimeter_rhombus(s={lado}) = {resultado}")
         return resultado
     
+    def volumen_prisma(self, area_base, altura):
+        """Calcula el volumen de un prisma dado el área de la base y la altura"""
+        if area_base < 0 or altura < 0:
+            raise ValueError("El área de la base y la altura no pueden ser negativas")
+        resultado = area_base * altura
+        self.historial.append(f"volume_prism(base_area={area_base}, h={altura}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
