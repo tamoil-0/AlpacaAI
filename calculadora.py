@@ -557,6 +557,14 @@ class Calculator:
         self.historial.append(f"volume_pyramid(base_area={area_base}, h={altura}) = {resultado}")
         return resultado
     
+    def kilometros_a_millas(self, km):
+        """Convierte kilómetros a millas"""
+        if km < 0:
+            raise ValueError("La distancia no puede ser negativa")
+        resultado = km * 0.621371
+        self.historial.append(f"{km} km = {resultado} mi")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
