@@ -549,6 +549,14 @@ class Calculator:
         self.historial.append(f"area_parallelogram(b={base}, h={altura}) = {resultado}")
         return resultado
     
+    def volumen_piramide(self, area_base, altura):
+        """Calcula el volumen de una pirámide dado el área de la base y la altura"""
+        if area_base < 0 or altura < 0:
+            raise ValueError("El área de la base y la altura no pueden ser negativas")
+        resultado = (area_base * altura) / 3
+        self.historial.append(f"volume_pyramid(base_area={area_base}, h={altura}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
