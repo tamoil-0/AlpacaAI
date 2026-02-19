@@ -660,6 +660,14 @@ class Calculator:
         self.historial.append(f"tanh({x}) = {resultado}")
         return resultado
     
+    def area_rombo(self, diagonal_mayor, diagonal_menor):
+        """Calcula el área de un rombo dados sus diagonales"""
+        if diagonal_mayor < 0 or diagonal_menor < 0:
+            raise ValueError("Las diagonales no pueden ser negativas")
+        resultado = (diagonal_mayor * diagonal_menor) / 2
+        self.historial.append(f"area_rhombus(d1={diagonal_mayor}, d2={diagonal_menor}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
