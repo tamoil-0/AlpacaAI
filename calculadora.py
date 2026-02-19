@@ -609,6 +609,17 @@ class Calculator:
         self.historial.append(f"quartiles({', '.join(map(str, numeros))}) = Q1={q1}, Q2={q2}, Q3={q3}")
         return resultado
     
+    def percentil(self, percentil, *numeros):
+        """Calcula el percentil especificado de una lista de números"""
+        if not 0 <= percentil <= 100:
+            raise ValueError("El percentil debe estar entre 0 y 100")
+        if not numeros:
+            raise ValueError("Se requieren números para calcular el percentil")
+        import statistics
+        resultado = statistics.quantiles(numeros, n=100)[percentil]
+        self.historial.append(f"percentile({percentil}, {', '.join(map(str, numeros))}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
