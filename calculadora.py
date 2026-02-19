@@ -573,6 +573,14 @@ class Calculator:
         self.historial.append(f"{mi} mi = {resultado} km")
         return resultado
     
+    def fuerza(self, masa, aceleracion):
+        """Calcula la fuerza: F = m*a"""
+        if masa < 0 or aceleracion < 0:
+            raise ValueError("La masa y la aceleración no pueden ser negativas")
+        resultado = masa * aceleracion
+        self.historial.append(f"force(m={masa}, a={aceleracion}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
