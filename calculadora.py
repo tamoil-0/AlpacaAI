@@ -732,6 +732,12 @@ class Calculator:
         self.historial.append(f"kelvin_to_celsius({kelvin}K) = {resultado}°C")
         return resultado
     
+    def celsius_a_kelvin(self, celsius):
+        """Convierte temperatura de Celsius a Kelvin"""
+        resultado = celsius + 273.15
+        self.historial.append(f"celsius_to_kelvin({celsius}°C) = {resultado}K")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
