@@ -738,6 +738,14 @@ class Calculator:
         self.historial.append(f"celsius_to_kelvin({celsius}°C) = {resultado}K")
         return resultado
     
+    def area_cuadrado(self, lado):
+        """Calcula el área de un cuadrado dado su lado"""
+        if lado < 0:
+            raise ValueError("El lado no puede ser negativo")
+        resultado = lado ** 2
+        self.historial.append(f"area_square(s={lado}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
