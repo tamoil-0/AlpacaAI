@@ -754,6 +754,14 @@ class Calculator:
         self.historial.append(f"perimeter_square(s={lado}) = {resultado}")
         return resultado
     
+    def volumen_cubo(self, lado):
+        """Calcula el volumen de un cubo dado su lado"""
+        if lado < 0:
+            raise ValueError("El lado no puede ser negativo")
+        resultado = lado ** 3
+        self.historial.append(f"volume_cube(s={lado}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
