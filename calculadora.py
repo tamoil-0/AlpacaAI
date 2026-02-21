@@ -726,6 +726,12 @@ class Calculator:
         self.historial.append(f"volume_regular_tetrahedron(a={arista}) = {resultado}")
         return resultado
     
+    def kelvin_a_celsius(self, kelvin):
+        """Convierte temperatura de Kelvin a Celsius"""
+        resultado = kelvin - 273.15
+        self.historial.append(f"kelvin_to_celsius({kelvin}K) = {resultado}°C")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
