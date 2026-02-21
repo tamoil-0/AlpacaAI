@@ -702,6 +702,22 @@ class Calculator:
         self.historial.append(f"arc_length(r={radio}, angle={angulo}°) = {resultado}")
         return resultado
     
+    def area_pentagono(self, lado):
+        """Calcula el área de un pentágono regular dado su lado"""
+        if lado < 0:
+            raise ValueError("El lado no puede ser negativo")
+        resultado = (1/4) * math.sqrt(5 * (5 + 2 * math.sqrt(5))) * lado ** 2
+        self.historial.append(f"area_regular_pentagon(s={lado}) = {resultado}")
+        return resultado
+    
+    def perimetro_hexagono(self, lado):
+        """Calcula el perímetro de un hexágono regular dado su lado"""
+        if lado < 0:
+            raise ValueError("El lado no puede ser negativo")
+        resultado = 6 * lado
+        self.historial.append(f"perimeter_regular_hexagon(s={lado}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
