@@ -746,6 +746,14 @@ class Calculator:
         self.historial.append(f"area_square(s={lado}) = {resultado}")
         return resultado
     
+    def perimetro_cuadrado(self, lado):
+        """Calcula el perímetro de un cuadrado dado su lado"""
+        if lado < 0:
+            raise ValueError("El lado no puede ser negativo")
+        resultado = 4 * lado
+        self.historial.append(f"perimeter_square(s={lado}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
