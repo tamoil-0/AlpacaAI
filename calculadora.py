@@ -762,6 +762,12 @@ class Calculator:
         self.historial.append(f"volume_cube(s={lado}) = {resultado}")
         return resultado
     
+    def newton_a_dina(self, newton):
+        """Convierte fuerza de Newton a Dina"""
+        resultado = newton * 100000
+        self.historial.append(f"newton_to_dyne({newton}N) = {resultado}dyn")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
