@@ -718,6 +718,14 @@ class Calculator:
         self.historial.append(f"perimeter_regular_hexagon(s={lado}) = {resultado}")
         return resultado
     
+    def volumen_tetraedro(self, arista):
+        """Calcula el volumen de un tetraedro regular dado su arista"""
+        if arista < 0:
+            raise ValueError("La arista no puede ser negativa")
+        resultado = (arista ** 3) / (6 * math.sqrt(2))
+        self.historial.append(f"volume_regular_tetrahedron(a={arista}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
