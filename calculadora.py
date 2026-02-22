@@ -790,6 +790,14 @@ class Calculator:
         self.historial.append(f"perimeter_rectangle(l={largo}, w={ancho}) = {resultado}")
         return resultado
     
+    def volumen_prisma_rectangular(self, largo, ancho, alto):
+        """Calcula el volumen de un prisma rectangular dado largo, ancho y alto"""
+        if largo < 0 or ancho < 0 or alto < 0:
+            raise ValueError("Largo, ancho y alto no pueden ser negativos")
+        resultado = largo * ancho * alto
+        self.historial.append(f"volume_rectangular_prism(l={largo}, w={ancho}, h={alto}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
