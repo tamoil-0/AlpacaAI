@@ -804,6 +804,12 @@ class Calculator:
         self.historial.append(f"dyne_to_newton({dina}dyn) = {resultado}N")
         return resultado
     
+    def caloria_a_joule(self, caloria):
+        """Convierte energía de Caloría a Joule"""
+        resultado = caloria * 4.184
+        self.historial.append(f"calorie_to_joule({caloria}cal) = {resultado}J")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
