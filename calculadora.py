@@ -798,6 +798,12 @@ class Calculator:
         self.historial.append(f"volume_rectangular_prism(l={largo}, w={ancho}, h={alto}) = {resultado}")
         return resultado
     
+    def dina_a_newton(self, dina):
+        """Convierte fuerza de Dina a Newton"""
+        resultado = dina * 1e-5
+        self.historial.append(f"dyne_to_newton({dina}dyn) = {resultado}N")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
