@@ -826,6 +826,14 @@ class Calculator:
         self.historial.append(f"perimeter_triangle(a={lado1}, b={lado2}, c={lado3}) = {resultado}")
         return resultado
     
+    def volumen_cilindro(self, radio, altura):
+        """Calcula el volumen de un cilindro dado radio y altura"""
+        if radio < 0 or altura < 0:
+            raise ValueError("Radio y altura no pueden ser negativos")
+        resultado = math.pi * radio ** 2 * altura
+        self.historial.append(f"volume_cylinder(r={radio}, h={altura}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
