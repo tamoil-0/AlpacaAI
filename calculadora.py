@@ -810,6 +810,14 @@ class Calculator:
         self.historial.append(f"calorie_to_joule({caloria}cal) = {resultado}J")
         return resultado
     
+    def area_paralelogramo(self, base, altura):
+        """Calcula el área de un paralelogramo dado base y altura"""
+        if base < 0 or altura < 0:
+            raise ValueError("Base y altura no pueden ser negativas")
+        resultado = base * altura
+        self.historial.append(f"area_parallelogram(b={base}, h={altura}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
