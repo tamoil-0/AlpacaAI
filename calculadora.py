@@ -818,6 +818,14 @@ class Calculator:
         self.historial.append(f"area_parallelogram(b={base}, h={altura}) = {resultado}")
         return resultado
     
+    def perimetro_triangulo(self, lado1, lado2, lado3):
+        """Calcula el perímetro de un triángulo dado sus tres lados"""
+        if lado1 < 0 or lado2 < 0 or lado3 < 0:
+            raise ValueError("Los lados no pueden ser negativos")
+        resultado = lado1 + lado2 + lado3
+        self.historial.append(f"perimeter_triangle(a={lado1}, b={lado2}, c={lado3}) = {resultado}")
+        return resultado
+    
     def logaritmo(self, n, base=10):
         """Calcula el logaritmo en base especificada"""
         if n <= 0:
