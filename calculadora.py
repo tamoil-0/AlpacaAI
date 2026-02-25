@@ -860,6 +860,14 @@ class Calculator:
         self.historial.append(f"volume_pyramid(s={base}, h={altura}) = {resultado}")
         return resultado
     
+    def area_elipse(self, semi_eje_mayor, semi_eje_menor):
+        """Calcula el área de una elipse dado sus semi-ejes"""
+        if semi_eje_mayor < 0 or semi_eje_menor < 0:
+            raise ValueError("Los semi-ejes no pueden ser negativos")
+        resultado = math.pi * semi_eje_mayor * semi_eje_menor
+        self.historial.append(f"area_ellipse(a={semi_eje_mayor}, b={semi_eje_menor}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
