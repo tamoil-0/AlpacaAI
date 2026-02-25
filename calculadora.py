@@ -844,6 +844,14 @@ class Calculator:
         self.historial.append(f"log_{base}({n}) = {resultado}")
         return resultado
     
+    def area_rombo(self, diagonal_mayor, diagonal_menor):
+        """Calcula el área de un rombo dado sus diagonales"""
+        if diagonal_mayor < 0 or diagonal_menor < 0:
+            raise ValueError("Las diagonales no pueden ser negativas")
+        resultado = (diagonal_mayor * diagonal_menor) / 2
+        self.historial.append(f"area_rhombus(d1={diagonal_mayor}, d2={diagonal_menor}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
