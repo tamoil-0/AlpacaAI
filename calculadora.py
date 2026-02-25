@@ -852,6 +852,14 @@ class Calculator:
         self.historial.append(f"area_rhombus(d1={diagonal_mayor}, d2={diagonal_menor}) = {resultado}")
         return resultado
     
+    def volumen_piramide(self, base, altura):
+        """Calcula el volumen de una pirámide cuadrada dado lado de base y altura"""
+        if base < 0 or altura < 0:
+            raise ValueError("Base y altura no pueden ser negativas")
+        resultado = (base ** 2 * altura) / 3
+        self.historial.append(f"volume_pyramid(s={base}, h={altura}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
