@@ -893,6 +893,12 @@ class Calculator:
         self.historial.append(f"surface_area_sphere(r={radio}) = {resultado}")
         return resultado
     
+    def kelvin_a_fahrenheit(self, kelvin):
+        """Convierte temperatura de Kelvin a Fahrenheit"""
+        resultado = (kelvin - 273.15) * 9/5 + 32
+        self.historial.append(f"kelvin_to_fahrenheit({kelvin}K) = {resultado}°F")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
