@@ -868,6 +868,15 @@ class Calculator:
         self.historial.append(f"area_ellipse(a={semi_eje_mayor}, b={semi_eje_menor}) = {resultado}")
         return resultado
     
+    def perimetro_elipse(self, semi_eje_mayor, semi_eje_menor):
+        """Calcula el perímetro aproximado de una elipse dado sus semi-ejes (fórmula de Ramanujan)"""
+        if semi_eje_mayor < 0 or semi_eje_menor < 0:
+            raise ValueError("Los semi-ejes no pueden ser negativos")
+        h = ((semi_eje_mayor - semi_eje_menor) / (semi_eje_mayor + semi_eje_menor)) ** 2
+        resultado = math.pi * (semi_eje_mayor + semi_eje_menor) * (1 + (3 * h) / (10 + math.sqrt(4 - 3 * h)))
+        self.historial.append(f"perimeter_ellipse(a={semi_eje_mayor}, b={semi_eje_menor}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
