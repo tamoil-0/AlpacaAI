@@ -926,6 +926,14 @@ class Calculator:
         self.historial.append(f"area_circular_segment(r={radio}, angle={angulo}°) = {resultado}")
         return resultado
     
+    def volumen_toro(self, radio_mayor, radio_menor):
+        """Calcula el volumen aproximado de un toro dado radios mayor y menor"""
+        if radio_mayor < 0 or radio_menor < 0 or radio_menor > radio_mayor:
+            raise ValueError("Radios deben ser positivos y radio menor <= radio mayor")
+        resultado = (math.pi * radio_menor ** 2) * (2 * math.pi * radio_mayor)
+        self.historial.append(f"volume_torus(R={radio_mayor}, r={radio_menor}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
