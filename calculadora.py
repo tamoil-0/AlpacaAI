@@ -934,6 +934,12 @@ class Calculator:
         self.historial.append(f"volume_torus(R={radio_mayor}, r={radio_menor}) = {resultado}")
         return resultado
     
+    def fahrenheit_a_celsius(self, fahrenheit):
+        """Convierte temperatura de Fahrenheit a Celsius"""
+        resultado = (fahrenheit - 32) * 5/9
+        self.historial.append(f"fahrenheit_to_celsius({fahrenheit}°F) = {resultado}°C")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
