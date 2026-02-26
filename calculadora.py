@@ -899,6 +899,14 @@ class Calculator:
         self.historial.append(f"kelvin_to_fahrenheit({kelvin}K) = {resultado}°F")
         return resultado
     
+    def area_sector_circular(self, radio, angulo):
+        """Calcula el área de un sector circular dado radio y ángulo en grados"""
+        if radio < 0 or angulo < 0 or angulo > 360:
+            raise ValueError("Radio debe ser positivo y ángulo entre 0 y 360 grados")
+        resultado = (angulo / 360) * math.pi * radio ** 2
+        self.historial.append(f"area_circular_sector(r={radio}, angle={angulo}°) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
