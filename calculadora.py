@@ -940,6 +940,12 @@ class Calculator:
         self.historial.append(f"fahrenheit_to_celsius({fahrenheit}°F) = {resultado}°C")
         return resultado
     
+    def celsius_a_fahrenheit(self, celsius):
+        """Convierte temperatura de Celsius a Fahrenheit"""
+        resultado = (celsius * 9/5) + 32
+        self.historial.append(f"celsius_to_fahrenheit({celsius}°C) = {resultado}°F")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
