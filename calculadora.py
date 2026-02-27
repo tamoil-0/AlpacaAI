@@ -954,6 +954,14 @@ class Calculator:
         self.historial.append(f"area_trapezoid(a={base_mayor}, b={base_menor}, h={altura}) = {resultado}")
         return resultado
     
+    def perimetro_trapecio(self, base_mayor, base_menor, lado1, lado2):
+        """Calcula el perímetro de un trapecio dado bases y lados"""
+        if base_mayor < 0 or base_menor < 0 or lado1 < 0 or lado2 < 0:
+            raise ValueError("Bases y lados no pueden ser negativos")
+        resultado = base_mayor + base_menor + lado1 + lado2
+        self.historial.append(f"perimeter_trapezoid(a={base_mayor}, b={base_menor}, c={lado1}, d={lado2}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
