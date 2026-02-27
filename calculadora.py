@@ -946,6 +946,14 @@ class Calculator:
         self.historial.append(f"celsius_to_fahrenheit({celsius}°C) = {resultado}°F")
         return resultado
     
+    def area_trapecio(self, base_mayor, base_menor, altura):
+        """Calcula el área de un trapecio dado bases y altura"""
+        if base_mayor < 0 or base_menor < 0 or altura < 0:
+            raise ValueError("Bases y altura no pueden ser negativas")
+        resultado = ((base_mayor + base_menor) / 2) * altura
+        self.historial.append(f"area_trapezoid(a={base_mayor}, b={base_menor}, h={altura}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
