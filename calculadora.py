@@ -970,6 +970,14 @@ class Calculator:
         self.historial.append(f"volume_cone(r={radio}, h={altura}) = {resultado}")
         return resultado
     
+    def area_superficie_cono(self, radio, generatriz):
+        """Calcula el área de la superficie lateral de un cono dado radio y generatriz"""
+        if radio < 0 or generatriz < 0:
+            raise ValueError("Radio y generatriz no pueden ser negativos")
+        resultado = math.pi * radio * generatriz
+        self.historial.append(f"lateral_surface_area_cone(r={radio}, l={generatriz}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
