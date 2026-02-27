@@ -962,6 +962,14 @@ class Calculator:
         self.historial.append(f"perimeter_trapezoid(a={base_mayor}, b={base_menor}, c={lado1}, d={lado2}) = {resultado}")
         return resultado
     
+    def volumen_cono(self, radio, altura):
+        """Calcula el volumen de un cono dado radio y altura"""
+        if radio < 0 or altura < 0:
+            raise ValueError("Radio y altura no pueden ser negativos")
+        resultado = (1/3) * math.pi * radio ** 2 * altura
+        self.historial.append(f"volume_cone(r={radio}, h={altura}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
