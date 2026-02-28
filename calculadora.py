@@ -998,6 +998,15 @@ class Calculator:
         self.historial.append(f"gcd({a}, {b}) = {a}")
         return a
     
+    def mcm(self, a, b):
+        """Calcula el mínimo común múltiplo de dos números"""
+        if a <= 0 or b <= 0:
+            raise ValueError("Los números deben ser positivos")
+        gcd = self.mcd(a, b)
+        resultado = abs(a * b) // gcd
+        self.historial.append(f"lcm({a}, {b}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
