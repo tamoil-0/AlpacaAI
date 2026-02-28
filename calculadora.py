@@ -978,6 +978,17 @@ class Calculator:
         self.historial.append(f"lateral_surface_area_cone(r={radio}, l={generatriz}) = {resultado}")
         return resultado
     
+    def numero_primo_siguiente(self, n):
+        """Encuentra el siguiente número primo mayor que n"""
+        if n < 2:
+            return 2
+        candidato = n + 1
+        while True:
+            if self.es_primo(candidato):
+                self.historial.append(f"next_prime_after({n}) = {candidato}")
+                return candidato
+            candidato += 1
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
