@@ -989,6 +989,15 @@ class Calculator:
                 return candidato
             candidato += 1
     
+    def mcd(self, a, b):
+        """Calcula el máximo común divisor de dos números"""
+        if a <= 0 or b <= 0:
+            raise ValueError("Los números deben ser positivos")
+        while b != 0:
+            a, b = b, a % b
+        self.historial.append(f"gcd({a}, {b}) = {a}")
+        return a
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
