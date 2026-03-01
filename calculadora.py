@@ -1015,6 +1015,14 @@ class Calculator:
         self.historial.append(f"area_regular_polygon(n={n}, s={lado}) = {resultado}")
         return resultado
     
+    def perimetro_poligono_regular(self, n, lado):
+        """Calcula el perímetro de un polígono regular dado número de lados y longitud del lado"""
+        if n < 3 or lado <= 0:
+            raise ValueError("Número de lados debe ser >= 3 y lado > 0")
+        resultado = n * lado
+        self.historial.append(f"perimeter_regular_polygon(n={n}, s={lado}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
