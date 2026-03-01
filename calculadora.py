@@ -1023,6 +1023,15 @@ class Calculator:
         self.historial.append(f"perimeter_regular_polygon(n={n}, s={lado}) = {resultado}")
         return resultado
     
+    def volumen_prisma_triangular(self, base, altura_triangulo, altura_prisma):
+        """Calcula el volumen de un prisma triangular dado base, altura del triángulo y altura del prisma"""
+        if base <= 0 or altura_triangulo <= 0 or altura_prisma <= 0:
+            raise ValueError("Base, altura del triángulo y altura del prisma deben ser positivas")
+        area_base = (base * altura_triangulo) / 2
+        resultado = area_base * altura_prisma
+        self.historial.append(f"volume_triangular_prism(b={base}, h_tri={altura_triangulo}, h_prism={altura_prisma}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
