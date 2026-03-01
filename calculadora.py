@@ -1032,6 +1032,16 @@ class Calculator:
         self.historial.append(f"volume_triangular_prism(b={base}, h_tri={altura_triangulo}, h_prism={altura_prisma}) = {resultado}")
         return resultado
     
+    def area_superficie_prisma_triangular(self, base, altura_triangulo, altura_prisma):
+        """Calcula el área de la superficie total de un prisma triangular dado base, altura del triángulo y altura del prisma"""
+        if base <= 0 or altura_triangulo <= 0 or altura_prisma <= 0:
+            raise ValueError("Base, altura del triángulo y altura del prisma deben ser positivas")
+        area_base = (base * altura_triangulo) / 2
+        area_lateral = 3 * base * altura_prisma
+        resultado = 2 * area_base + area_lateral
+        self.historial.append(f"surface_area_triangular_prism(b={base}, h_tri={altura_triangulo}, h_prism={altura_prisma}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
