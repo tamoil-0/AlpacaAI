@@ -1050,6 +1050,14 @@ class Calculator:
         self.historial.append(f"surface_area_regular_octahedron(a={arista}) = {resultado}")
         return resultado
     
+    def volumen_dodecaedro(self, arista):
+        """Calcula el volumen de un dodecaedro regular dado su arista"""
+        if arista <= 0:
+            raise ValueError("La arista debe ser positiva")
+        resultado = (15 + 7 * math.sqrt(5)) / 4 * arista ** 3
+        self.historial.append(f"volume_regular_dodecahedron(a={arista}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
