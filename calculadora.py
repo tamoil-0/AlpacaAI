@@ -1042,6 +1042,14 @@ class Calculator:
         self.historial.append(f"surface_area_triangular_prism(b={base}, h_tri={altura_triangulo}, h_prism={altura_prisma}) = {resultado}")
         return resultado
     
+    def area_superficie_octaedro(self, arista):
+        """Calcula el área de la superficie de un octaedro regular dado su arista"""
+        if arista <= 0:
+            raise ValueError("La arista debe ser positiva")
+        resultado = 2 * math.sqrt(3) * arista ** 2
+        self.historial.append(f"surface_area_regular_octahedron(a={arista}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
