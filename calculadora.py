@@ -1148,6 +1148,14 @@ class Calculator:
         self.historial.append(f"volume_regular_icosahedron(a={arista}) = {resultado}")
         return resultado
     
+    def area_superficie_icosaedro(self, arista):
+        """Calcula el área de la superficie de un icosaedro regular dado su arista"""
+        if arista <= 0:
+            raise ValueError("La arista debe ser positiva")
+        resultado = 5 * math.sqrt(3) * arista ** 2
+        self.historial.append(f"surface_area_regular_icosahedron(a={arista}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
