@@ -1066,6 +1066,14 @@ class Calculator:
         self.historial.append(f"area_annulus(r_outer={radio_exterior}, r_inner={radio_interior}) = {resultado}")
         return resultado
     
+    def perimetro_anillo(self, radio_exterior, radio_interior):
+        """Calcula el perímetro de un anillo dado radio exterior y radio interior"""
+        if radio_exterior <= 0 or radio_interior < 0 or radio_interior >= radio_exterior:
+            raise ValueError("Radio exterior debe ser positivo y mayor que radio interior")
+        resultado = 2 * math.pi * (radio_exterior + radio_interior)
+        self.historial.append(f"perimeter_annulus(r_outer={radio_exterior}, r_inner={radio_interior}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
