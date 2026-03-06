@@ -1082,6 +1082,14 @@ class Calculator:
         self.historial.append(f"volume_annulus(r_outer={radio_exterior}, r_inner={radio_interior}, h={altura}) = {resultado}")
         return resultado
     
+    def area_parabola(self, base, altura):
+        """Calcula el área bajo una parábola dada base y altura"""
+        if base <= 0 or altura <= 0:
+            raise ValueError("Base y altura deben ser positivas")
+        resultado = (2/3) * base * altura
+        self.historial.append(f"area_parabola(b={base}, h={altura}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
