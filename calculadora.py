@@ -1122,6 +1122,16 @@ class Calculator:
         self.historial.append(f"volume_ellipsoid(a={a}, b={b}, c={c}) = {resultado}")
         return resultado
     
+    def area_superficie_elipsoide(self, a, b, c):
+        """Calcula el área de la superficie de un elipsoide dado semi-ejes a, b, c"""
+        if a <= 0 or b <= 0 or c <= 0:
+            raise ValueError("Semi-ejes deben ser positivos")
+        # Approximate formula
+        p = 1.6075
+        resultado = 4 * math.pi * ((a**p * b**p + a**p * c**p + b**p * c**p)/3)**(1/p)
+        self.historial.append(f"surface_area_ellipsoid(a={a}, b={b}, c={c}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
