@@ -1114,6 +1114,14 @@ class Calculator:
         self.historial.append(f"surface_area_paraboloid(r={radio}, h={altura}) = {resultado}")
         return resultado
     
+    def volumen_elipsoide(self, a, b, c):
+        """Calcula el volumen de un elipsoide dado semi-ejes a, b, c"""
+        if a <= 0 or b <= 0 or c <= 0:
+            raise ValueError("Semi-ejes deben ser positivos")
+        resultado = (4/3) * math.pi * a * b * c
+        self.historial.append(f"volume_ellipsoid(a={a}, b={b}, c={c}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
