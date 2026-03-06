@@ -1098,6 +1098,14 @@ class Calculator:
         self.historial.append(f"area_hyperbola(a={semi_eje_mayor}, b={semi_eje_menor}) = {resultado}")
         return resultado
     
+    def volumen_paraboloide(self, radio, altura):
+        """Calcula el volumen de un paraboloide dado radio y altura"""
+        if radio <= 0 or altura <= 0:
+            raise ValueError("Radio y altura deben ser positivos")
+        resultado = (1/2) * math.pi * radio ** 2 * altura
+        self.historial.append(f"volume_paraboloid(r={radio}, h={altura}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
