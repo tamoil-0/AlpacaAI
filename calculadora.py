@@ -1106,6 +1106,14 @@ class Calculator:
         self.historial.append(f"volume_paraboloid(r={radio}, h={altura}) = {resultado}")
         return resultado
     
+    def area_superficie_paraboloide(self, radio, altura):
+        """Calcula el área de la superficie de un paraboloide dado radio y altura"""
+        if radio <= 0 or altura <= 0:
+            raise ValueError("Radio y altura deben ser positivos")
+        resultado = math.pi * radio * math.sqrt(radio ** 2 + altura ** 2)
+        self.historial.append(f"surface_area_paraboloid(r={radio}, h={altura}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
