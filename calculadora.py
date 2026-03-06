@@ -1132,6 +1132,14 @@ class Calculator:
         self.historial.append(f"surface_area_ellipsoid(a={a}, b={b}, c={c}) = {resultado}")
         return resultado
     
+    def area_superficie_tetraedro(self, arista):
+        """Calcula el área de la superficie de un tetraedro regular dado su arista"""
+        if arista <= 0:
+            raise ValueError("La arista debe ser positiva")
+        resultado = math.sqrt(3) * arista ** 2
+        self.historial.append(f"surface_area_regular_tetrahedron(a={arista}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
