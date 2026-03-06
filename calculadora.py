@@ -1090,6 +1090,14 @@ class Calculator:
         self.historial.append(f"area_parabola(b={base}, h={altura}) = {resultado}")
         return resultado
     
+    def area_hipérbola(self, semi_eje_mayor, semi_eje_menor):
+        """Calcula el área de una hipérbola dada semi-ejes"""
+        if semi_eje_mayor <= 0 or semi_eje_menor <= 0:
+            raise ValueError("Semi-ejes deben ser positivos")
+        resultado = math.pi * semi_eje_mayor * semi_eje_menor
+        self.historial.append(f"area_hyperbola(a={semi_eje_mayor}, b={semi_eje_menor}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
