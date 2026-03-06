@@ -1164,6 +1164,14 @@ class Calculator:
         self.historial.append(f"area_spherical_sector(r={radio}, angle={angulo}°) = {resultado}")
         return resultado
     
+    def volumen_sector_esferico(self, radio, angulo):
+        """Calcula el volumen de un sector esférico dado radio y ángulo en grados"""
+        if radio <= 0 or angulo < 0 or angulo > 360:
+            raise ValueError("Radio positivo y ángulo entre 0 y 360")
+        resultado = (angulo / 360) * (4/3) * math.pi * radio ** 3
+        self.historial.append(f"volume_spherical_sector(r={radio}, angle={angulo}°) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
