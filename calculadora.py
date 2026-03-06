@@ -1058,6 +1058,14 @@ class Calculator:
         self.historial.append(f"volume_regular_dodecahedron(a={arista}) = {resultado}")
         return resultado
     
+    def area_anillo(self, radio_exterior, radio_interior):
+        """Calcula el área de un anillo dado radio exterior y radio interior"""
+        if radio_exterior <= 0 or radio_interior < 0 or radio_interior >= radio_exterior:
+            raise ValueError("Radio exterior debe ser positivo y mayor que radio interior")
+        resultado = math.pi * (radio_exterior ** 2 - radio_interior ** 2)
+        self.historial.append(f"area_annulus(r_outer={radio_exterior}, r_inner={radio_interior}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
