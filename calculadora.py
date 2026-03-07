@@ -1212,6 +1212,19 @@ class Calculator:
         self.historial.append(f"{km} km = {resultado} miles")
         return resultado
     
+    def es_primo(self, n):
+        """Verifica si un número es primo"""
+        if not isinstance(n, int) or n < 2:
+            raise ValueError("El número debe ser un entero mayor o igual a 2")
+        for i in range(2, int(math.sqrt(n)) + 1):
+            if n % i == 0:
+                resultado = False
+                break
+        else:
+            resultado = True
+        self.historial.append(f"is_prime({n}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
