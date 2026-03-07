@@ -1188,6 +1188,14 @@ class Calculator:
         self.historial.append(f"rotational_kinetic_energy(I={momento_inercia}, ω={velocidad_angular}) = {resultado}")
         return resultado
     
+    def area_trapecio(self, base_mayor, base_menor, altura):
+        """Calcula el área de un trapecio: (a + b)/2 * h"""
+        if base_mayor <= 0 or base_menor <= 0 or altura <= 0:
+            raise ValueError("Bases y altura deben ser positivas")
+        resultado = (base_mayor + base_menor) / 2 * altura
+        self.historial.append(f"trapezoid_area(a={base_mayor}, b={base_menor}, h={altura}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
