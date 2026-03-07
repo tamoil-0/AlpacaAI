@@ -1204,6 +1204,14 @@ class Calculator:
         self.historial.append(f"cone_volume(r={radio}, h={altura}) = {resultado}")
         return resultado
     
+    def kilometros_a_millas(self, km):
+        """Convierte kilómetros a millas"""
+        if km < 0:
+            raise ValueError("La distancia no puede ser negativa")
+        resultado = km * 0.621371
+        self.historial.append(f"{km} km = {resultado} miles")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
