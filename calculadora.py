@@ -1180,6 +1180,14 @@ class Calculator:
         self.historial.append(f"area_spherical_zone(r={radio}, h={altura}) = {resultado}")
         return resultado
     
+    def energia_cinetica_rotacional(self, momento_inercia, velocidad_angular):
+        """Calcula la energía cinética rotacional: 0.5 * I * ω²"""
+        if momento_inercia < 0:
+            raise ValueError("El momento de inercia debe ser no negativo")
+        resultado = 0.5 * momento_inercia * velocidad_angular ** 2
+        self.historial.append(f"rotational_kinetic_energy(I={momento_inercia}, ω={velocidad_angular}) = {resultado}")
+        return resultado
+    
     def logaritmo_natural(self, n):
         """Calcula el logaritmo natural (ln)"""
         if n <= 0:
